@@ -1,0 +1,21 @@
+{
+  "name": "magic",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Marc Larkin <larkimarc@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/NMead93/new-magic-draft",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "boostrap#^3.3.7",
+    "mana": "*"
+  }
+}

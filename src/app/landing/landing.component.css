@@ -1,0 +1,33 @@
+
+@font-face {
+    font-family: 'MTG';
+    src: url('../../assets/magic.ttf') format('truetype');
+}
+#landing-image {
+    background-image: radial-gradient(ellipse, rgba(75, 75, 75, 0.5), rgba(0, 0, 0, 0.9)), url('../../assets/landing-bg.jpg');
+    font-family: 'MTG';
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#landing-heading {
+    font-size: 6em;
+    text-shadow: -.05em .05em .05em rgba(0, 0, 0, 0.5);
+    color: rgb(175, 175, 175);
+
+}
+#start-button {
+    width: 25%;
+    box-shadow: -.25em .25em .25em rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+
+}
+
+#land-text {
+}
