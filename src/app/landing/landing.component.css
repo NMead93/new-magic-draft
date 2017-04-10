@@ -18,13 +18,13 @@
 
 #landing-heading {
     font-size: 6em;
-    text-shadow: -.05em .05em .05em rgba(0, 0, 0, 0.5);
+    text-shadow: .00em .05em .05em rgba(0, 0, 0, 0.5);
     color: rgb(175, 175, 175);
 
 }
 #start-button {
     width: 25%;
-    box-shadow: -.25em .25em .25em rgba(0, 0, 0, 0.5);
+    box-shadow: -.0em .25em .25em rgba(0, 0, 0, 0.5);
     font-size: 20px;
 
 }
