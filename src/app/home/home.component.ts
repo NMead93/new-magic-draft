@@ -6,7 +6,7 @@ import { Draft } from '../draft.model';
 import { Player } from '../player.model';
 
 @Component({
-  selector: 'app-home',
+  selector: 'player-creation-overlay',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   providers: [MagicService]

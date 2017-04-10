@@ -7,11 +7,8 @@ const appRoutes: Routes = [
     {
         path: '',
         component: LandingComponent
-    },
-    {
-        path: 'initialize',
-        component: HomeComponent
     }
+
 
 ];
 
