@@ -3,7 +3,7 @@ import { Player } from './player.model';
 
 export class Draft {
     public turns: number;
-    constructor(public players: Player[], public boosters: Booster[]) {
+    constructor(public players: any, public boosters: Booster[]) {
         this.turns = 0;
     }
 }

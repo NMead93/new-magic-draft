@@ -24,7 +24,8 @@ export class HomeComponent {
 
   addPlayer(name: string) {
     this.playerNameList.push(name);
-    // console.log(this.playerList.length);
+
+    console.log(this.playerNameList);
   }
 
   getBoosters() {
@@ -55,5 +56,7 @@ export class HomeComponent {
 
   boosterCall() {
   }
+
+
 
 }

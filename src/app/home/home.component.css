@@ -1,0 +1,19 @@
+#input-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1em;
+    outline: red 1px solid;
+}
+
+#input-container {
+    text-align: center;
+}
+
+#add-player-button {
+    margin: .5em;
+}
+
+#start-draft-button {
+    margin-top: 1em;
+}

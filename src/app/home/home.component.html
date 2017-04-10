@@ -1,17 +1,20 @@
-<h2>Draft Setup</h2>
 
+<div id="input-container" class="container-full">
+    <h2>Draft Setup</h2>
+    <h3>Who will be drafting?</h3>
 
-<div>
-  <label>New Player Name</label>
-  <input #playerName>
-  <button (click)="addPlayer(playerName.value)">Add Player</button>
+<div id="input-panel" class="row">
+    <div class="col-sm-6">
+        <input #playerName placeholder="Riftwalker's Name"  autofocus="true">
+        <br>
+        <button type="button" id="add-player-button" (click)="addPlayer(playerName.value)">Add Player</button>
+    </div>
+    <div class="col-sm-4">
+        <ol>
+
+            <li *ngFor="let name of playerNameList">{{name}}</li>
+        </ol>
+    </div>
 </div>
-
-
-
-<div>
-  <button (click)="getBoosters()">booster</button>
+<button id="start-draft-button" (click)="generateDraft()">Begin!</button>
 </div>
-
-  <button (click)="showme()"> show me </button>
-<button  (click)="generateDraft()">Make Draft</button>
