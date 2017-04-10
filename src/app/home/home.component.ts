@@ -11,26 +11,38 @@ import { Draft } from '../draft.model';
   providers: [MagicService]
 })
 export class HomeComponent {
+    playerList: string[] = [];
     search;
-    boosterList: Booster[];
+    boosterList: Booster[] = [];
 
   constructor(private magicService: MagicService) { }
 
   ngOnInit() {
   }
 
-  getBoosters(numOfBoosters: number) {
-      for(var i = 0; i < numOfBoosters; i++) {
-          this.boosterCall();
+  addPlayer(name: string) {
+    this.playerList.push(name);
+    // console.log(this.playerList.length);
+  }
+
+  getBoosters() {
+      for(var i = 0; i < this.playerList.length * 3; i++) {
+          // this.boosterCall();
+          this.magicService.getBooster().subscribe(data => {
+            this.search = data;
+            var freshPack: Booster = new Booster(this.search.cards)
+            this.boosterList.push(freshPack);
+          });
       }
+      console.log(this.boosterList);
+      console.log(this.playerList);
+  }
+
+  showme() {
+    console.log(this.boosterList.length);
   }
 
   boosterCall() {
-    this.magicService.getBooster().subscribe(data => {
-        this.search = data;
-        var newBooster: Booster = new Booster(this.search.cards);
-        this.boosterList.push(newBooster);
-    });
   }
 
 }
