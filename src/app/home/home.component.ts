@@ -3,6 +3,7 @@ import { MagicService } from '../magic.service';
 import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 import { Booster } from '../booster.model';
 import { Draft } from '../draft.model';
+import { Player } from '../player.model';
 
 @Component({
   selector: 'app-home',
@@ -11,26 +12,48 @@ import { Draft } from '../draft.model';
   providers: [MagicService]
 })
 export class HomeComponent {
+    playerNameList: string[] = [];
+    playerList: Player[] = [];
     search;
-    boosterList: Booster[];
+    boosterList: Booster[] = [];
 
   constructor(private magicService: MagicService) { }
 
   ngOnInit() {
   }
 
-  getBoosters(numOfBoosters: number) {
-      for(var i = 0; i < numOfBoosters; i++) {
-          this.boosterCall();
+  addPlayer(name: string) {
+    this.playerNameList.push(name);
+    // console.log(this.playerList.length);
+  }
+
+  getBoosters() {
+      for(var i = 0; i < this.playerNameList.length * 3; i++) {
+          // this.boosterCall();
+          this.magicService.getBooster().subscribe(data => {
+            this.search = data;
+            var freshPack: Booster = new Booster(this.search.cards, i.toString())
+            this.boosterList.push(freshPack);
+          });
       }
+      console.log(this.boosterList);
+      console.log(this.playerNameList);
+  }
+
+  generateDraft() {
+    for(var i = 0; i < this.playerNameList.length; i++) {
+      var newPlayer = new Player(this.playerNameList[i], i.toString());
+      this.playerList.push(newPlayer);
+    }
+    var newDraft = new Draft(this.playerList, this.boosterList);
+    this.magicService.saveDraft(newDraft);
+  }
+
+  showme() {
+    console.log(this.boosterList.length);
   }
 
   boosterCall() {
-    this.magicService.getBooster().subscribe(data => {
-        this.search = data;
-        var newBooster: Booster = new Booster(this.search.cards);
-        this.boosterList.push(newBooster);
-    });
   }
 
 }

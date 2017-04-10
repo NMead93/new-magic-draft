@@ -1,15 +1,17 @@
 <h2>Draft Setup</h2>
 
+
 <div>
-    <div>
-        <label>Number of Players</label>
-        <input type='number' #playerNumbers>
-    </div>
-    <button (click)="getBoosters(playerNumbers.value)">Make Draft</button>
+  <label>New Player Name</label>
+  <input #playerName>
+  <button (click)="addPlayer(playerName.value)">Add Player</button>
 </div>
 
-<div *ngFor='let booster of boosters'>
-  <div *ngFor='let card of booster.cards'>
-    <h3>{{card.name}}</h3>
-  </div>
+
+
+<div>
+  <button (click)="getBoosters()">booster</button>
 </div>
+
+  <button (click)="showme()"> show me </button>
+<button  (click)="generateDraft()">Make Draft</button>
