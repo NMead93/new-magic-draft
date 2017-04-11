@@ -30,10 +30,10 @@ export class HomeComponent {
     console.log(this.playerNameList);
   }
 
-  getBoosters() {
+  generateBoosters() {
       for(var i = 0; i < this.playerNameList.length * 3; i++) {
           // this.boosterCall();
-          this.magicService.getBooster().subscribe(data => {
+          this.magicService.generateBooster().subscribe(data => {
             this.search = data;
             var freshPack: Booster = new Booster(this.search.cards, i.toString())
             this.boosterList.push(freshPack);
@@ -57,6 +57,10 @@ export class HomeComponent {
       this.cardHolder = data;
       this.magicService.addCardToUser(this.cardHolder, playerId, cardId, packId, draftId);
     })
+  }
+
+  getBoosters(draftId: string) {
+    
   }
 
 

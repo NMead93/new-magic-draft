@@ -16,13 +16,17 @@ export class MagicService {
 
   drafts: FirebaseListObservable<any[]>;
 
-  getBooster() {
+  generateBooster() {
       return this.http.get("https://api.magicthegathering.io/v1/sets/KLD/booster")
         .map((res:Response) => res.json());
   }
 
   saveDraft(newDraft: Draft) {
       this.drafts.push(newDraft);
+  }
+
+  getBoosters(draftId: string) {
+    return this.angularFire.database.list('drafts/' + draftId + '/boosters');
   }
 
   getCard(packId: string, cardId: string, draftId: string) {
