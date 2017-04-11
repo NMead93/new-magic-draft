@@ -2,6 +2,7 @@ import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LandingComponent } from "./landing/landing.component";
+import { DraftingComponent } from "./drafting/drafting.component";
 
 const appRoutes: Routes = [
     {
@@ -11,6 +12,10 @@ const appRoutes: Routes = [
     {
       path: 'test',
       component: HomeComponent
+    },
+    {
+      path: 'draft/:id',
+      component: DraftingComponent
     }
 
 

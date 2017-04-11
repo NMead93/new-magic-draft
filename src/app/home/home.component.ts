@@ -5,6 +5,7 @@ import { Booster } from '../booster.model';
 import { Draft } from '../draft.model';
 import { Player } from '../player.model';
 import { Card } from '../card.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'player-creation-overlay',
@@ -18,8 +19,9 @@ export class HomeComponent {
     search;
     boosterList: Booster[] = [];
     cardHolder: Card;
+    currentBoosters
 
-  constructor(private magicService: MagicService) { }
+  constructor(private magicService: MagicService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -58,11 +60,6 @@ export class HomeComponent {
       this.magicService.addCardToUser(this.cardHolder, playerId, cardId, packId, draftId);
     })
   }
-
-  getBoosters(draftId: string) {
-    
-  }
-
 
   showme() {
     console.log(this.boosterList.length);
