@@ -1,16 +1,19 @@
-<h1> BEGIN DRAFTING </h1>
+<div class="big-daddy">
+    <h1> BEGIN DRAFTING </h1>
 
-<p>{{currentPlayer?.name}}</p>
-<button (click)="nextGrab()">Next Grab</button>
-<div class="">
+    <p>{{currentPlayer?.name}}</p>
+    <div class="">
 
-<div class="" id="card-container">
-    <img src="{{card?.imageUrl}}" *ngFor="let card of currentBoosterCards"/>
+        <div class="" id="card-container">
+            <img src="{{card?.imageUrl}}" *ngFor="let card of currentBoosterCards"/>
+
+        </div>
+        <div id="component-holder">
+
+        </div>
+
+    </div>
+    <button (click)="nextGrab()">Next Grab</button>
+    <button (click)="beginAddCardToUser(1)">Test Add Card</button>
 
 </div>
-<div id="component-holder">
-
-</div>
-
-</div>
-<button (click)="beginAddCardToUser(1)">Test Add Card</button>
