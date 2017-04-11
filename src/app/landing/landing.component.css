@@ -17,11 +17,10 @@
     width: 100vw;
 }
 
-
 .landing-image {
     background-image: radial-gradient(ellipse, rgba(75, 75, 75, 0.5), rgba(0, 0, 0, 0.9)), url('../../assets/landing-bg.jpg');
     font-family: 'magic';
-    height: 94.75vh;
+    height: 95.3vh;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -46,14 +45,27 @@
     font-size: 6em;
     text-shadow: .00em .05em .05em rgba(0, 0, 0, 0.5);
     color: rgb(190, 185, 178);
+    -webkit-text-fill-color: transparent;
+    background: -webkit-linear-gradient(transparent, transparent),
+    url("http://t15.deviantart.net/pErqh5lvSlr6xEqDO5hgJrbUdeo=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre05/09a1/th/pre/f/2007/220/d/6/magic_the_gathering__plains_bg_by_spiteful_pie_stock.jpg") repeat;
+    background: -o-linear-gradient(transparent, transparent);
+    -webkit-background-clip: text;
+    filter: saturate(.5);
 
 }
 #start-button {
     width: 25%;
     box-shadow: -.0em .25em .25em rgba(0, 0, 0, 0.5);
     font-size: 1em;
+    background-image: url("http://t15.deviantart.net/pErqh5lvSlr6xEqDO5hgJrbUdeo=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre05/09a1/th/pre/f/2007/220/d/6/magic_the_gathering__plains_bg_by_spiteful_pie_stock.jpg");
+    filter: saturate(.7);
+
 
 }
+#start-button:hover {
+    filter: saturate(1);
+}
+
 
 #land-text {
 }
