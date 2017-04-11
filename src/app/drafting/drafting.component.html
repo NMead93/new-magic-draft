@@ -1,3 +1,9 @@
 <h1> BEGIN DRAFTING </h1>
 
+<p>{{currentPlayer?.name}}</p>
 <button (click)="nextGrab()">Next Grab</button>
+
+<div class="" id="card-container">
+    <img src="{{card?.imageUrl}}" *ngFor="let card of currentBoosterCards"/>
+
+</div>

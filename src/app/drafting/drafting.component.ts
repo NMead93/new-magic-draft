@@ -32,7 +32,7 @@ export class DraftingComponent implements OnInit {
     this.magicService.getDraft(this.draftId).subscribe(data => {
       this.currentDraft = data;
       this.initializeGrab();
-      console.log(this.currentDraft.players);
+    //   console.log(this.currentDraft.players);
     })
   }
 
@@ -42,8 +42,10 @@ export class DraftingComponent implements OnInit {
 
   // turn and pack rotation methods ===================
   initializeGrab(){
+    console.log(this.currentDraft.players);
     this.currentPlayer = this.currentDraft.players[this.currentDraft.turns % this.currentDraft.players.length];
-    this.currentBoosterCards = this.currentDraft.boosters[parseInt(this.currentPlayer.currentPackId)];
+    console.log(this.currentPlayer);
+    this.currentBoosterCards = this.currentDraft.boosters[parseInt(this.currentPlayer.currentPackId)].cards;
   }
 
   nextGrab() {
@@ -53,8 +55,8 @@ export class DraftingComponent implements OnInit {
       this.beginUpdatingDraft();
     }
     this.currentDraft.turns++;
-    console.log(this.currentPlayer);
-    console.log(this.currentPlayer.currentPackId);
+    // console.log(this.currentPlayer);
+    // console.log(this.currentPlayer.currentPackId);
   }
 
   endOfTurnCheck() {
