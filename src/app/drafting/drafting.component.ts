@@ -76,7 +76,7 @@ export class DraftingComponent implements OnInit {
       packIdArr.push(this.currentDraft.players[i].currentPackId);
     }
     for (var i = 0; i < this.currentDraft.players.length; i++) {
-      this.currentDraft.players[i].currentPackId = packIdArr[(i + 1) % 3];
+      this.currentDraft.players[i].currentPackId = packIdArr[(i + 1) % this.currentDraft.players.length];
     }
     this.beginUpdatingDraft();
   }

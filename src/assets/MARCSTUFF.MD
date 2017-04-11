@@ -6,3 +6,5 @@ animate.css
 
 TExtures:
 https://www.toptal.com/designers/subtlepatterns/
+
+https://www.npmjs.com/package/ng2-twitter
