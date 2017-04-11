@@ -66,12 +66,7 @@ export class HomeComponent {
 }, 5000);
 }
 
-  beginAddCardToUser(cardId: string, playerId: string, draftId: string, packId: string) {
-    this.magicService.getCard(packId, cardId, draftId).subscribe(data => {
-      this.cardHolder = data;
-      this.magicService.addCardToUser(this.cardHolder, playerId, cardId, packId, draftId);
-    })
-  }
+  
 
 
   showme() {
