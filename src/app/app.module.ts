@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LandingComponent } from './landing/landing.component';
 import { DraftingComponent } from './drafting/drafting.component';
+import { AboutComponent } from './about/about.component';
+import { HistoryComponent } from './history/history.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -23,7 +25,9 @@ export const firebaseConfig = {
     AppComponent,
     HomeComponent,
     LandingComponent,
-    DraftingComponent
+    DraftingComponent,
+    AboutComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

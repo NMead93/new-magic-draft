@@ -38,42 +38,36 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    animation: hue ease 15s alternate infinite;
+    animation: hue ease 9s alternate infinite;
 }
 
 #landing-heading {
     font-size: 6em;
     text-shadow: .00em .05em .05em rgba(0, 0, 0, 0.5);
     color: rgb(190, 185, 178);
-<<<<<<< HEAD
     -webkit-text-fill-color: transparent;
     background: -webkit-linear-gradient(transparent, transparent),
     url("http://t15.deviantart.net/pErqh5lvSlr6xEqDO5hgJrbUdeo=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre05/09a1/th/pre/f/2007/220/d/6/magic_the_gathering__plains_bg_by_spiteful_pie_stock.jpg") repeat;
     background: -o-linear-gradient(transparent, transparent);
     -webkit-background-clip: text;
     filter: saturate(.5);
-=======
->>>>>>> 343455b10945594016603af93f684bc7ffcdba3b
-
 }
+
 #start-button {
     width: 25%;
     box-shadow: -.0em .25em .25em rgba(0, 0, 0, 0.5);
     font-size: 1em;
-    background-image: url("http://t15.deviantart.net/pErqh5lvSlr6xEqDO5hgJrbUdeo=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre05/09a1/th/pre/f/2007/220/d/6/magic_the_gathering__plains_bg_by_spiteful_pie_stock.jpg");
+    background-image: radial-gradient(ellipse, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)), url("http://t15.deviantart.net/pErqh5lvSlr6xEqDO5hgJrbUdeo=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre05/09a1/th/pre/f/2007/220/d/6/magic_the_gathering__plains_bg_by_spiteful_pie_stock.jpg");
     filter: saturate(.7);
-
-
 }
+
 #start-button:hover {
     filter: saturate(1);
 }
 
 
-#land-text {
-}
 
 @keyframes hue {
-    0% {filter: hue-rotate(0deg) blur(2px)}
-    100% {filter: hue-rotate(180deg) blur(2px)}
+    0% {filter: saturate(.4) blur(2px)}
+    100% {filter: saturate(2) blur(4px)}
 }

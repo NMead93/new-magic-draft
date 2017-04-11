@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LandingComponent } from "./landing/landing.component";
 import { DraftingComponent } from "./drafting/drafting.component";
+import { AboutComponent } from "./about/about.component";
+import { HistoryComponent } from "./history/history.component";
 
 const appRoutes: Routes = [
     {
@@ -16,6 +18,14 @@ const appRoutes: Routes = [
     {
       path: 'draft/:id',
       component: DraftingComponent
+    },
+    {
+        path: 'about',
+        component: AboutComponent
+    },
+    {
+      path: 'history',
+      component: HistoryComponent
     }
 
 

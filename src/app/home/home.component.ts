@@ -5,7 +5,6 @@ import { Booster } from '../booster.model';
 import { Draft } from '../draft.model';
 import { Player } from '../player.model';
 import { Card } from '../card.model';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'player-creation-overlay',
@@ -19,9 +18,9 @@ export class HomeComponent {
     search;
     boosterList: Booster[] = [];
     cardHolder: Card;
-    currentBoosters
+    loadingCards: boolean = false;
 
-  constructor(private magicService: MagicService, private router: Router) { }
+  constructor(private magicService: MagicService) { }
 
   ngOnInit() {
   }
@@ -32,12 +31,12 @@ export class HomeComponent {
     console.log(this.playerNameList);
   }
 
-<<<<<<< HEAD
   getBoosters() {
-      //   add class for animation here
-=======
-  generateBoosters() {
->>>>>>> 343455b10945594016603af93f684bc7ffcdba3b
+      this.loadingCards = true;
+      setTimeout(() => {
+          this.loadingCards = false;
+          this.generateDraft();
+      }, 5000);
       for(var i = 0; i < this.playerNameList.length * 3; i++) {
           // this.boosterCall();
           this.magicService.generateBooster().subscribe(data => {
@@ -55,13 +54,17 @@ export class HomeComponent {
   }
 
   generateDraft() {
+     this.loadingCards = true;
     for(var i = 0; i < this.playerNameList.length; i++) {
       var newPlayer = new Player(this.playerNameList[i], i.toString());
       this.playerList.push(newPlayer);
     }
-    var newDraft = new Draft(this.playerList, this.boosterList);
-    this.magicService.saveDraft(newDraft);
-  }
+    setTimeout(() => {
+        this.loadingCards = false;
+        var newDraft = new Draft(this.playerList, this.boosterList);
+        this.magicService.saveDraft(newDraft);
+}, 5000);
+}
 
   beginAddCardToUser(cardId: string, playerId: string, draftId: string, packId: string) {
     this.magicService.getCard(packId, cardId, draftId).subscribe(data => {
@@ -69,6 +72,7 @@ export class HomeComponent {
       this.magicService.addCardToUser(this.cardHolder, playerId, cardId, packId, draftId);
     })
   }
+
 
   showme() {
     console.log(this.boosterList.length);
