@@ -31,13 +31,4 @@ export class DraftingComponent implements OnInit {
     })
   }
 
-  getBoosters(draftId: string) {
-    this
-  }
-
-  assignPack(){
-    //this method will assign the current pack to the current player
-  }
-
-
 }
