@@ -2,8 +2,15 @@
 
 <p>{{currentPlayer?.name}}</p>
 <button (click)="nextGrab()">Next Grab</button>
+<div class="">
 
 <div class="" id="card-container">
     <img src="{{card?.imageUrl}}" *ngFor="let card of currentBoosterCards"/>
 
 </div>
+<div id="component-holder">
+
+</div>
+
+</div>
+<button (click)="beginAddCardToUser(1)">Test Add Card</button>

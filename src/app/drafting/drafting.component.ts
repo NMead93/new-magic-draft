@@ -40,11 +40,18 @@ export class DraftingComponent implements OnInit {
     this.magicService.updateDraft(this.currentDraft, this.draftId);
   }
 
+  beginAddCardToUser(cardId: string) {
+    var playerId = ((this.currentDraft.turns - 1) % this.currentDraft.players.length).toString();
+    this.magicService.getCard(this.currentPlayer.currentPackId, cardId, this.draftId).subscribe(data => {
+      this.magicService.addCardToUser(data, playerId, cardId, this.currentPlayer.currentPackId, this.draftId);
+    })
+  }
+
   // turn and pack rotation methods ===================
   initializeGrab(){
     console.log(this.currentDraft.players);
     this.currentPlayer = this.currentDraft.players[this.currentDraft.turns % this.currentDraft.players.length];
-    console.log(this.currentPlayer);
+
     this.currentBoosterCards = this.currentDraft.boosters[parseInt(this.currentPlayer.currentPackId)].cards;
   }
 
