@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import { Booster } from './booster.model';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Draft } from './draft.model';
+import { Card } from './card.model';
 
 
 @Injectable()
@@ -24,8 +25,15 @@ export class MagicService {
       this.drafts.push(newDraft);
   }
 
-  clearAllBoosters() {
+  getCard(packId: string, cardId: string, draftId: string) {
+    return this.angularFire.database.object('drafts/' + draftId + '/boosters/' + packId + '/cards/' + cardId);
+  }
 
+  addCardToUser(newCard, playerId: string, cardId: string, packId: string, draftId: string) {
+    var card = this.getCard(packId, cardId, draftId);
+    card.remove();
+    var cardList = this.angularFire.database.list('drafts/' + draftId + '/players/' + playerId + '/cards');
+    cardList.push(newCard);
   }
 
 }

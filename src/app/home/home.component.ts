@@ -4,6 +4,7 @@ import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 import { Booster } from '../booster.model';
 import { Draft } from '../draft.model';
 import { Player } from '../player.model';
+import { Card } from '../card.model';
 
 @Component({
   selector: 'player-creation-overlay',
@@ -16,6 +17,7 @@ export class HomeComponent {
     playerList: Player[] = [];
     search;
     boosterList: Booster[] = [];
+    cardHolder: Card;
 
   constructor(private magicService: MagicService) { }
 
@@ -50,11 +52,16 @@ export class HomeComponent {
     this.magicService.saveDraft(newDraft);
   }
 
-  showme() {
-    console.log(this.boosterList.length);
+  beginAddCardToUser(cardId: string, playerId: string, draftId: string, packId: string) {
+    this.magicService.getCard(packId, cardId, draftId).subscribe(data => {
+      this.cardHolder = data;
+      this.magicService.addCardToUser(this.cardHolder, playerId, cardId, packId, draftId);
+    })
   }
 
-  boosterCall() {
+
+  showme() {
+    console.log(this.boosterList.length);
   }
 
 

@@ -7,6 +7,10 @@ const appRoutes: Routes = [
     {
         path: '',
         component: LandingComponent
+    },
+    {
+      path: 'test',
+      component: HomeComponent
     }
 
 
