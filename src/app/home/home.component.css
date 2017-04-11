@@ -1,20 +1,61 @@
 #input-panel {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 1em;
-    outline: red 1px solid;
+
 }
 
 #input-container {
     text-align: center;
-    z-index: 99;
+    z-index: 9;
+    background-image: radial-gradient(ellipse, rgba(0, 0, 0, 0.4), black);
+    border: solid .25em black;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    border-radius: .5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+    box-shadow: .00em .2em .3em .2em rgba(0, 0, 0, 0.5);
+    color: rgb(190, 185, 178);
+
+}
+
+
+#name-input {
+    text-align: center;
+    border: none;
+    background-color: rgb(190, 185, 178);
+    color: black;
+    border-radius: .1em;
+
+}
+
+h1 {
+    margin-top: 0px;
+    padding-top: 0px;
 }
 
 #add-player-button {
     margin: .5em;
+    color: black;
 }
 
 #start-draft-button {
-    margin-top: 1em;
+    /*margin-top: 1em;*/
+    color: black;
+}
+
+
+
+#loading {
+    z-index: 99;
+    top: 50%;
+    left: 50%;
+    /*animation: rotate 5s ease-in-out alternate infinite;*/
+}
+
+@keyframes rotate {
+    0% {transform: rotate(0deg)}
+    100% {transform: rotate(1440deg)}
 }
