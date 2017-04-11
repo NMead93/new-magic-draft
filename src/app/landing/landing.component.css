@@ -51,6 +51,7 @@
     background: -o-linear-gradient(transparent, transparent);
     -webkit-background-clip: text;
     filter: saturate(.5);
+
 }
 
 #start-button {

@@ -41,7 +41,7 @@ export class HomeComponent {
           // this.boosterCall();
           this.magicService.generateBooster().subscribe(data => {
             this.search = data;
-            var freshPack: Booster = new Booster(this.search.cards, i.toString())
+            var freshPack: Booster = new Booster(this.search.cards)
             this.boosterList.push(freshPack);
           });
         //   if (this.boosterList.count === this.playerNameList.length*3){
