@@ -32,7 +32,12 @@ export class HomeComponent {
     console.log(this.playerNameList);
   }
 
+<<<<<<< HEAD
+  getBoosters() {
+      //   add class for animation here
+=======
   generateBoosters() {
+>>>>>>> 343455b10945594016603af93f684bc7ffcdba3b
       for(var i = 0; i < this.playerNameList.length * 3; i++) {
           // this.boosterCall();
           this.magicService.generateBooster().subscribe(data => {
@@ -40,6 +45,10 @@ export class HomeComponent {
             var freshPack: Booster = new Booster(this.search.cards, i.toString())
             this.boosterList.push(freshPack);
           });
+        //   if (this.boosterList.count === this.playerNameList.length*3){
+        //       //   then remove class for animation here
+        //   }
+        //   route to next page
       }
       console.log(this.boosterList);
       console.log(this.playerNameList);

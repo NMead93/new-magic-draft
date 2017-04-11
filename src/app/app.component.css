@@ -1,0 +1,8 @@
+nav{
+    margin-bottom: -4px;
+    box-shadow: 0em -.2em .2em rgba(0, 0, 0, 0.5);
+    color: darkgray;
+}
+nav a:hover{
+    color: darkgray;
+}

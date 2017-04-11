@@ -1,22 +1,30 @@
 
 <div id="input-container" class="container-full">
-    <h2>Draft Setup</h2>
-    <h3>Who will be drafting?</h3>
+    <h2>Who will be drafting?</h2>
 
 <div id="input-panel" class="row">
-    <div class="col-sm-6">
-        <input #playerName placeholder="Riftwalker's Name"  autofocus="true">
-        <br>
-        <button type="button" id="add-player-button" (click)="addPlayer(playerName.value)">Add Player</button>
+    <div class="" id="name-list">
+            <p *ngFor="let name of playerNameList">{{name}}</p>
     </div>
-    <div class="col-sm-4">
-        <ol>
-
-            <li *ngFor="let name of playerNameList">{{name}}</li>
-        </ol>
+    <div class="" id="new-player">
+        <input id="name-input" #playerName placeholder="Riftwalker's Name"  autofocus="true">
+        <br>
+        <button class="btn btn-sm" type="button" id="add-player-button" (click)="addPlayer(playerName.value)">Add Player</button>
     </div>
 </div>
+<div class="button holder">
+    <button class="btn" id="start-draft-button" (click)="generateDraft()">Begin!</button>
+</div>
+</div>
+<div id="load-animations">
+
+</div>
+<<<<<<< HEAD
+<div id="loading" *ngIf="loadingCards">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Magic_the_gathering_pentagon.png/220px-Magic_the_gathering_pentagon.png"/>
+=======
 <button (click)="generateBoosters()">Generate Boosters</button>
 <button id="start-draft-button" (click)="generateDraft()">Begin!</button>
 <button (click)="beginAddCardToUser('5', '0', '-KhPC8AbZKVjg53NSpmV', '0')">Test add card</button>
+>>>>>>> 343455b10945594016603af93f684bc7ffcdba3b
 </div>
