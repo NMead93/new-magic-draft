@@ -36,7 +36,8 @@ export class HomeComponent {
       setTimeout(() => {
           this.loadingCards = false;
           this.generateDraft();
-      }, 5000);
+      }, 2500);
+
       for(var i = 0; i < this.playerNameList.length * 3; i++) {
           // this.boosterCall();
           this.magicService.generateBooster().subscribe(data => {
