@@ -32,17 +32,13 @@ export class HomeComponent {
     console.log(this.playerNameList);
   }
 
-<<<<<<< HEAD
-  getBoosters() {
-      //   add class for animation here
-=======
+
   generateBoosters() {
->>>>>>> 343455b10945594016603af93f684bc7ffcdba3b
       for(var i = 0; i < this.playerNameList.length * 3; i++) {
           // this.boosterCall();
           this.magicService.generateBooster().subscribe(data => {
             this.search = data;
-            var freshPack: Booster = new Booster(this.search.cards, i.toString())
+            var freshPack: Booster = new Booster(this.search.cards)
             this.boosterList.push(freshPack);
           });
         //   if (this.boosterList.count === this.playerNameList.length*3){

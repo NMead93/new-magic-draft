@@ -21,15 +21,17 @@ export class DraftingComponent implements OnInit {
   }
 
   draftId: string;
+  currentPlayer;
   currentDraft;
-
+  currentBoosterCards;
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
-      this.draftId = urlParameters['id']
+      this.draftId = urlParameters['id'];
     });
     this.magicService.getDraft(this.draftId).subscribe(data => {
       this.currentDraft = data;
+      this.initializeGrab();
       console.log(this.currentDraft.players);
     })
   }
@@ -38,8 +40,25 @@ export class DraftingComponent implements OnInit {
     this.magicService.updateDraft(this.currentDraft, this.draftId);
   }
 
+  // turn and pack rotation methods ===================
+  initializeGrab(){
+    this.currentPlayer = this.currentDraft.players[this.currentDraft.turns % this.currentDraft.players.length];
+    this.currentBoosterCards = this.currentDraft.boosters[parseInt(this.currentPlayer.currentPackId)];
+  }
+
+  nextGrab() {
+    this.initializeGrab();
+    if(this.endOfTurnCheck()){
+      this.passPack();
+      this.beginUpdatingDraft();
+    }
+    this.currentDraft.turns++;
+    console.log(this.currentPlayer);
+    console.log(this.currentPlayer.currentPackId);
+  }
+
   endOfTurnCheck() {
-    return this.currentDraft.turns % 3 === 0;
+    return (this.currentDraft.turns % this.currentDraft.players.length) === 0;
   }
 
   passPack() {
@@ -50,9 +69,10 @@ export class DraftingComponent implements OnInit {
     for (var i = 0; i < this.currentDraft.players.length; i++) {
       this.currentDraft.players[i].currentPackId = packIdArr[(i + 1) % 3];
     }
-    this.currentDraft.turns++;
     this.beginUpdatingDraft();
   }
+
+  //end turn and pack rotation methods ===================
 
   assignPacksToPlayers() {
     this.currentDraft.rounds++;
