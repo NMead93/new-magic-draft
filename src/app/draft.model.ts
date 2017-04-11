@@ -3,7 +3,9 @@ import { Player } from './player.model';
 
 export class Draft {
     public turns: number;
+    public rounds: number;
     constructor(public players: any, public boosters: Booster[]) {
         this.turns = 0;
+        this.rounds = 0;
     }
 }

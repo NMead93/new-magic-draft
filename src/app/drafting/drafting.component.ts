@@ -12,7 +12,8 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-drafting',
   templateUrl: './drafting.component.html',
-  styleUrls: ['./drafting.component.css']
+  styleUrls: ['./drafting.component.css'],
+  providers: [MagicService]
 })
 export class DraftingComponent implements OnInit {
 
@@ -22,13 +23,43 @@ export class DraftingComponent implements OnInit {
   draftId: string;
   currentDraft;
 
+
   ngOnInit() {
-    this.route.params.forEach((urlParameters) =>{
+    this.route.params.forEach((urlParameters) => {
       this.draftId = urlParameters['id']
     });
     this.magicService.getDraft(this.draftId).subscribe(data => {
       this.currentDraft = data;
+      console.log(this.currentDraft.players);
     })
+  }
+
+  beginUpdatingDraft() {
+    this.magicService.updateDraft(this.currentDraft, this.draftId);
+  }
+
+  endOfTurnCheck() {
+    return this.currentDraft.turns % 3 === 0;
+  }
+
+  passPack() {
+    var packIdArr: string[] = [];
+    for (var i = 0; i < this.currentDraft.players.length; i++) {
+      packIdArr.push(this.currentDraft.players[i].currentPackId);
+    }
+    for (var i = 0; i < this.currentDraft.players.length; i++) {
+      this.currentDraft.players[i].currentPackId = packIdArr[(i + 1) % 3];
+    }
+    this.currentDraft.turns++;
+    this.beginUpdatingDraft();
+  }
+
+  assignPacksToPlayers() {
+    this.currentDraft.rounds++;
+    for (var i = 0; i < this.currentDraft.players.length; i++) {
+      this.currentDraft.players[i].currentPackId = (i + (this.currentDraft.players.length * this.currentDraft.rounds)).toString();
+    }
+    this.beginUpdatingDraft();
   }
 
 }

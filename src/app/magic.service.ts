@@ -46,6 +46,16 @@ export class MagicService {
     return this.angularFire.database.object('drafts/' + id);
   }
 
+  updateDraft(draftToUpdate, id) {
+    var draft = this.getDraft(id);
+    draft.update({
+      boosters: draftToUpdate.boosters,
+      players: draftToUpdate.players,
+      turns: draftToUpdate.turns,
+      rounds: draftToUpdate.rounds
+    });
+  }
+
   // assignPacksToPlayers(){
   //   (i=0; i<)
   // }
