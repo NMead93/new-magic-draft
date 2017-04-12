@@ -8,7 +8,7 @@ class="background">
     <div class="">
 
         <div class="" id="card-container">
-            <img src="{{card?.imageUrl}}" *ngFor="let card of arrayedBoosterCards" (click)="displayCard(card)"/>
+            <img src="{{card?.imageUrl}}" *ngFor="let card of currentBoosterCards" (click)="displayCard(card)"/>
 
         </div>
         <div id="component-holder">

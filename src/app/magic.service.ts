@@ -44,6 +44,10 @@ export class MagicService {
     cardList.push(newCard);
   }
 
+  getCurrentBooster(draftId: string, boosterId: string) {
+    return this.angularFire.database.list('drafts/' + draftId + '/boosters/' + boosterId + '/cards');
+  }
+
   getDraft(id) {
     return this.angularFire.database.object('drafts/' + id);
   }
