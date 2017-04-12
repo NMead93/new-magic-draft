@@ -137,7 +137,9 @@ export class DraftingComponent implements OnInit {
   hideCard() {
       this.selectedCard = null;
       this.blurBg = false;
+  }
 
+  beginUpdatePlayerCardInfo() {
   }
 
 
