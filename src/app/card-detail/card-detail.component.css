@@ -5,7 +5,6 @@
     align-items: center;
     justify-content: space-around;
     color: black;
-    outline: solid 1px yellow;
     transform: scale(2);
 
 }
@@ -16,7 +15,6 @@
     width: 100%;
     border-radius: 1em;
     box-shadow: .00em .2em .3em .2em rgba(0, 0, 0, 0.5);
-    outline: solid 1px red;
 
 }
 
@@ -25,18 +23,25 @@
     text-align: center;
     z-index: 9;
     flex-direction: column;
-    color: black;
+    margin-left: .25em;
 }
 #yes {
-    margin-bottom: 1em;
+    margin-bottom: .5em;
     background-image: radial-gradient(circle, rgb(113, 160, 125), rgb(4,87,43));
     background-color: #007F30;
-    color: rgb(20, 16, 17);
+    color: #00240E;
     text-shadow: 0em 4em 1em white;
+    border: solid .2em rgb(24, 77, 45);
+}
+#no {
+    background-image: radial-gradient(circle, rgb(235, 141, 115), rgb(189, 30, 22));
+    background-color: #007F30;
+    color: #3D0300;
+    text-shadow: 0em 4em 1em white;
+    border: solid .2em rgb(166, 33, 27);
 }
 
 button {
-    border-radius: .1em;
-    border: solid 1px lightgray);
+    border-radius: 1em;
 
 }
