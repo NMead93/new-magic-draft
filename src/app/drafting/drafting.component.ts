@@ -24,6 +24,7 @@ export class DraftingComponent implements OnInit {
   currentPlayer;
   currentDraft;
   currentBoosterCards;
+  selectedCard;
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
@@ -85,6 +86,10 @@ export class DraftingComponent implements OnInit {
       this.currentDraft.players[i].currentPackId = (i + (this.currentDraft.players.length * this.currentDraft.rounds)).toString();
     }
     this.beginUpdatingDraft();
+  }
+
+  displayCard(card) {
+      this.selectedCard = card;
   }
 
 }

@@ -1,12 +1,12 @@
 <div class="big-daddy">
     <h1> BEGIN DRAFTING </h1>
 
-    <p>{{currentPlayer?.name}}</p>
-    <app-player-info [childCurrentPlayer]="currentPlayer"></app-player-info>
+    <!-- <p>{{currentPlayer?.name}}</p>
+    <app-player-info [childCurrentPlayer]="currentPlayer"></app-player-info> -->
     <div class="">
 
         <div class="" id="card-container">
-            <img src="{{card?.imageUrl}}" *ngFor="let card of currentBoosterCards"/>
+            <img src="{{card?.imageUrl}}" *ngFor="let card of currentBoosterCards" (click)="displayCard(card)"/>
 
         </div>
         <div id="component-holder">
@@ -18,3 +18,4 @@
     <button (click)="beginAddCardToUser(1)">Test Add Card</button>
 
 </div>
+<app-card-detail [cardToDisplay]="selectedCard" *ngIf="selectedCard"></app-card-detail>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-card-detail',
@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-detail.component.css']
 })
 export class CardDetailComponent implements OnInit {
+    @Input() cardToDisplay;
+    @Output() yesOrNo = new EventEmitter();
+    constructor() { }
 
-  constructor() { }
+    ngOnInit() {
+    }
 
-  ngOnInit() {
-  }
-
+    yesPlease() {
+        this.clickSender.emit('yes')
+    }
+    noThanks() {
+        this.clickSender.emit('no')
+    }
 }
