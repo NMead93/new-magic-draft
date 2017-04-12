@@ -56,6 +56,16 @@ export class MagicService {
     });
   }
 
+  //Functions for dealing with player info==================
+  getCardInfo(draftId: string, playerId: string) {
+      return this.angularFire.database.object('drafts/' + draftId + '/players/' + playerId + '/playerInfo');
+  }
+
+  updatePlayerCardInfo(newCardInfo, draftId: string, playerId: string) {
+      var cardInfo = this.getCardInfo(draftId, playerId);
+      cardInfo.update({})
+  }
+
   // assignPacksToPlayers(){
   //   (i=0; i<)
   // }

@@ -50,7 +50,6 @@ export class DraftingComponent implements OnInit {
   initializeGrab(){
     this.currentPlayer = this.currentDraft.players[(this.currentDraft.turns -1) % this.currentDraft.players.length];
     this.currentBoosterCards = this.currentDraft.boosters[parseInt(this.currentPlayer.currentPackId)].cards;
-
   }
 
   nextGrab() {

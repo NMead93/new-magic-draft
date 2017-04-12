@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-player-info',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./player-info.component.css']
 })
 export class PlayerInfoComponent implements OnInit {
+
+    @Input() childCurrentPlayer;
 
   constructor() { }
 
