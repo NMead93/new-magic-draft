@@ -14,9 +14,9 @@ export class CardDetailComponent implements OnInit {
     }
 
     yesPlease() {
-        this.clickSender.emit('yes')
+        this.yesOrNo.emit('yes')
     }
     noThanks() {
-        this.clickSender.emit('no')
+        this.yesOrNo.emit('no')
     }
 }
