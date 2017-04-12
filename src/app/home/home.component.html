@@ -11,9 +11,23 @@
             <br>
             <button class="btn btn-sm" type="button" id="add-player-button" (click)="addPlayer(playerName.value)">Add Player</button>
         </div>
+        <div>
+            <select #setOption>
+                <option value="KLD">Kaladesh</option>
+                <option value="EMN">Eldritch Moon</option>
+                <option value="SOI">Shadows Over Innistrad</option>
+                <option value="OGW">Oath of the Gatewatch</option>
+                <option value="BFZ">Battle for Zendikar</option>
+                <option value="DTK">Dragons of Tarkir</option>
+                <option value="FRF">Fate Reforged</option>
+                <option value="KTK">Khans of Tarkir</option>
+                <option value="JOU">Journey into Nyx</option>
+                <option value="BNG">Born of the Gods</option>
+            </select>
+        </div>
     </div>
     <div class="button holder">
-        <button class="btn" id="start-draft-button" (click)="getBoosters()">Start Draft!</button>
+        <button class="btn" id="start-draft-button" (click)="getBoosters(setOption.value)">Start Draft!</button>
 
     </div>
 </div>

@@ -18,8 +18,8 @@ export class MagicService {
 
   drafts: FirebaseListObservable<any[]>;
 
-  generateBooster() {
-      return this.http.get("https://api.magicthegathering.io/v1/sets/KLD/booster")
+  generateBooster(setOption: string) {
+      return this.http.get("https://api.magicthegathering.io/v1/sets/" + setOption + "/booster")
         .map((res:Response) => res.json());
   }
 
@@ -54,6 +54,16 @@ export class MagicService {
       turns: draftToUpdate.turns,
       rounds: draftToUpdate.rounds
     });
+  }
+
+  //Functions for dealing with player info==================
+  getCardInfo(draftId: string, playerId: string) {
+      return this.angularFire.database.object('drafts/' + draftId + '/players/' + playerId + '/playerInfo');
+  }
+
+  updatePlayerCardInfo(newCardInfo, draftId: string, playerId: string) {
+      var cardInfo = this.getCardInfo(draftId, playerId);
+      cardInfo.update({})
   }
 
   // assignPacksToPlayers(){
