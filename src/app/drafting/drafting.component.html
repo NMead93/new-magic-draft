@@ -10,12 +10,12 @@
 
         </div>
         <div id="component-holder">
-
+          
         </div>
 
     </div>
     <button (click)="nextGrab()">Next Grab</button>
-    <button (click)="beginAddCardToUser(1)">Test Add Card</button>
+    <button (click)="processDetailSelection('yes')">Test Add Card</button>
 
 </div>
-<app-card-detail [cardToDisplay]="selectedCard" *ngIf="selectedCard"></app-card-detail>
+<app-card-detail [cardToDisplay]="selectedCard" (yesOrNo)="processDetailSelection($event)" *ngIf="selectedCard"></app-card-detail>

@@ -13,10 +13,10 @@ export class CardDetailComponent implements OnInit {
     ngOnInit() {
     }
 
-    yesPlease() {
-        this.clickSender.emit('yes')
-    }
-    noThanks() {
-        this.clickSender.emit('no')
-    }
+    // yesPlease() {
+    //     this.clickSender.emit('yes')
+    // }
+    // noThanks() {
+    //     this.clickSender.emit('no')
+    // }
 }
