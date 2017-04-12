@@ -31,7 +31,7 @@ export class HomeComponent {
     console.log(this.playerNameList);
   }
 
-  getBoosters() {
+  getBoosters(setOption: string) {
       this.loadingCards = true;
       setTimeout(() => {
           this.loadingCards = false;
@@ -40,7 +40,7 @@ export class HomeComponent {
 
       for(var i = 0; i < this.playerNameList.length * 3; i++) {
           // this.boosterCall();
-          this.magicService.generateBooster().subscribe(data => {
+          this.magicService.generateBooster(setOption).subscribe(data => {
             this.search = data;
             var freshPack: Booster = new Booster(this.search.cards)
             this.boosterList.push(freshPack);

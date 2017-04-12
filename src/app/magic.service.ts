@@ -18,8 +18,8 @@ export class MagicService {
 
   drafts: FirebaseListObservable<any[]>;
 
-  generateBooster() {
-      return this.http.get("https://api.magicthegathering.io/v1/sets/KLD/booster")
+  generateBooster(setOption: string) {
+      return this.http.get("https://api.magicthegathering.io/v1/sets/" + setOption + "/booster")
         .map((res:Response) => res.json());
   }
 
