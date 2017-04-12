@@ -52,8 +52,7 @@ export class DraftingComponent implements OnInit {
   // turn and pack rotation methods ===================
   initializeGrab(){
     this.currentPlayer = this.currentDraft.players[(this.currentDraft.turns -1) % this.currentDraft.players.length];
-    this.currentBoosterCards = this.currentDraft.boosters[parseInt(this.currentPlayer.currentPackId)].cards;
-    this.setBoosterToArray(this.currentBoosterCards);
+    this.currentBoosterCards = this.setBoosterToArray(this.currentDraft.boosters[parseInt(this.currentPlayer.currentPackId)].cards);
     console.log(this.currentBoosterCards);
     console.log(this.currentPlayer);
   }
@@ -115,7 +114,7 @@ export class DraftingComponent implements OnInit {
   }
 
   setBoosterToArray(booster){
-    this.arrayedBoosterCards = Array.from(booster);
+    return Array.from(booster);
   }
 
 
