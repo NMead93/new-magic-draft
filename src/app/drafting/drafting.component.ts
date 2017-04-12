@@ -26,6 +26,7 @@ export class DraftingComponent implements OnInit {
   currentBoosterCards;
   selectedCard;
 
+
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
       this.draftId = urlParameters['id'];

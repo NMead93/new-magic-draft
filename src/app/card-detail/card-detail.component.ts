@@ -15,8 +15,15 @@ export class CardDetailComponent implements OnInit {
 
     yesPlease() {
         this.yesOrNo.emit('yes')
+        this.cardToDisplay = "";
     }
     noThanks() {
         this.yesOrNo.emit('no')
+        this.cardToDisplay = "";
     }
+
+
+    // if (text.contains('{G}') === true ) {
+    //     text.replace('{G}', '<i class="ms ms-g ms-cost"></i>' )
+    // }
 }
