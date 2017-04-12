@@ -24,7 +24,6 @@ export class DraftingComponent implements OnInit {
   currentPlayer;
   currentDraft;
   currentBoosterCards;
-  arrayedBoosterCards;
   selectedCard;
 
 
@@ -40,6 +39,7 @@ export class DraftingComponent implements OnInit {
 
   beginUpdatingDraft() {
     this.magicService.updateDraft(this.currentDraft, this.draftId);
+    this.resubscribeDraft();
   }
 
   beginAddCardToUser(cardId: string) {
@@ -52,9 +52,12 @@ export class DraftingComponent implements OnInit {
   // turn and pack rotation methods ===================
   initializeGrab(){
     this.currentPlayer = this.currentDraft.players[(this.currentDraft.turns -1) % this.currentDraft.players.length];
-    this.currentBoosterCards = this.setBoosterToArray(this.currentDraft.boosters[parseInt(this.currentPlayer.currentPackId)].cards);
-    console.log(this.currentBoosterCards);
-    console.log(this.currentPlayer);
+    // this.currentBoosterCards = this.setBoosterToArray(this.currentDraft.boosters[parseInt(this.currentPlayer.currentPackId)].cards).filter(function(n){ return n != undefined });
+    this.magicService.getCurrentBooster(this.draftId, this.currentPlayer.currentPackId).subscribe(data => {
+      this.currentBoosterCards = data;
+      console.log(this.currentBoosterCards);
+      console.log(this.currentPlayer);
+    })
   }
 
   nextGrab() {
@@ -110,11 +113,20 @@ export class DraftingComponent implements OnInit {
   checkIfEmptyPack(){
     if (this.currentBoosterCards.length === 0) {
       this.assignPacksToPlayers();
+      this.initializeGrab();
+      // this.nextGrab();
     }
   }
 
   setBoosterToArray(booster){
     return Array.from(booster);
+  }
+
+  resubscribeDraft() {
+    this.magicService.getDraft(this.draftId).subscribe(data => {
+      this.currentDraft = data;
+      console.log(this.currentDraft);
+    });
   }
 
 
