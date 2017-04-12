@@ -1,4 +1,6 @@
-<div class="big-daddy">
+<app-card-detail [cardToDisplay]="selectedCard" (yesOrNo)="processDetailSelection($event)" *ngIf="selectedCard" class="overlay" (click)="hideCard()"></app-card-detail>
+<div [ngClass]="{'background':true, 'blurred': blurBg}"
+class="background">
     <h1> BEGIN DRAFTING </h1>
 
     <!-- <p>{{currentPlayer?.name}}</p>
@@ -15,7 +17,4 @@
 
     </div>
     <button (click)="nextGrab()">Next Grab</button>
-    <button (click)="processDetailSelection('yes')">Test Add Card</button>
-
 </div>
-<app-card-detail [cardToDisplay]="selectedCard" (yesOrNo)="processDetailSelection($event)" *ngIf="selectedCard"></app-card-detail>

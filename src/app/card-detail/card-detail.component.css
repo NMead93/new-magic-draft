@@ -1,0 +1,46 @@
+#this-card {
+    text-align: center;
+    z-index: 9;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+    transform: scale(2);
+
+}
+
+#card-image {
+    filter: saturate(1.5) blur(.2);
+    height: 100%;
+    width: 100%;
+    box-shadow: .00em 1em .3em .2em rgba(0, 0, 0, 0.5);
+    border-radius: 1em;
+
+}
+
+#button-div {
+    display: inline-flex;
+    text-align: center;
+    z-index: 9;
+    flex-direction: column;
+    margin-left: .25em;
+}
+#yes {
+    margin-bottom: .5em;
+    background-image: radial-gradient(circle, rgb(113, 160, 125), rgb(4,87,43));
+    background-color: #007F30;
+    color: #00240E;
+    text-shadow: 0em 4em 1em white;
+    border: solid .2em rgb(24, 77, 45);
+}
+#no {
+    background-image: radial-gradient(circle, rgb(235, 141, 115), rgb(189, 30, 22));
+    background-color: #007F30;
+    color: #3D0300;
+    text-shadow: 0em 4em 1em white;
+    border: solid .2em rgb(166, 33, 27);
+}
+
+button {
+    border-radius: 1em;
+
+}

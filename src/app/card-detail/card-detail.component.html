@@ -1,3 +1,8 @@
-<p>
-  card-detail works!
-</p>
+<div id="this-card">
+    <img id="card-image" src="{{cardToDisplay?.imageUrl}}"/>
+    <div id="button-div">
+        <button id="yes" (click)="yesPlease()">&#10003;</button>
+        <button id="no" (click)="noThanks()">&#10007;</button>
+    </div>
+
+</div>

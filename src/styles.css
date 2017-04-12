@@ -3,3 +3,7 @@
     font-family: 'MTG';
     src: url('./assets/magic.ttf') format('truetype');
 }
+
+body {
+    min-height: 100vh;
+}

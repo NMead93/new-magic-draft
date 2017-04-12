@@ -6,3 +6,15 @@ nav{
 nav a:hover{
     color: darkgray;
 }
+
+nav {
+    position: absolute;
+    width: 99.5vw;
+    z-index: 999;
+    top: 0;
+}
+footer {
+    position: absolute;
+    width: 100vw;
+    z-index: 999;
+}

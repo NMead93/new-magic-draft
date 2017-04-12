@@ -25,6 +25,7 @@ export class DraftingComponent implements OnInit {
   currentDraft;
   currentBoosterCards;
   selectedCard;
+  blurBg: boolean = false;
 
 
   ngOnInit() {
@@ -97,6 +98,7 @@ export class DraftingComponent implements OnInit {
 
   displayCard(card) {
       this.selectedCard = card;
+      this.blurBg = true;
   }
 
   processDetailSelection(decision){
@@ -127,6 +129,12 @@ export class DraftingComponent implements OnInit {
       this.currentDraft = data;
       console.log(this.currentDraft);
     });
+  }
+
+  hideCard() {
+      this.selectedCard = null;
+      this.blurBg = false;
+
   }
 
 
