@@ -4,17 +4,16 @@
     display: inline-flex;
     align-items: center;
     justify-content: space-around;
-    color: black;
     transform: scale(2);
 
 }
 
 #card-image {
-    filter: blur(.25px);
+    filter: saturate(1.5) blur(.2);
     height: 100%;
     width: 100%;
+    box-shadow: .00em 1em .3em .2em rgba(0, 0, 0, 0.5);
     border-radius: 1em;
-    box-shadow: .00em .2em .3em .2em rgba(0, 0, 0, 0.5);
 
 }
 

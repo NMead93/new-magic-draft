@@ -1,5 +1,6 @@
 <app-card-detail [cardToDisplay]="selectedCard" (yesOrNo)="processDetailSelection($event)" *ngIf="selectedCard" class="overlay" (click)="hideCard()"></app-card-detail>
-<div class="background">
+<div [ngClass]="{'background':true, 'blurred': blurBg}"
+class="background">
     <h1> BEGIN DRAFTING </h1>
 
     <!-- <p>{{currentPlayer?.name}}</p>
