@@ -36,6 +36,8 @@ export class MagicService {
   }
 
   addCardToUser(newCard, playerId: string, cardId: string, packId: string, draftId: string) {
+    delete newCard.$key;
+    delete newCard.$value;
     var card = this.getCard(packId, cardId, draftId);
     card.remove();
     var cardList = this.angularFire.database.list('drafts/' + draftId + '/players/' + playerId + '/cards');

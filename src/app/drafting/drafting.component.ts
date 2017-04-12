@@ -24,6 +24,7 @@ export class DraftingComponent implements OnInit {
   currentPlayer;
   currentDraft;
   currentBoosterCards;
+  arrayedBoosterCards;
   selectedCard;
 
 
@@ -52,21 +53,23 @@ export class DraftingComponent implements OnInit {
   initializeGrab(){
     this.currentPlayer = this.currentDraft.players[(this.currentDraft.turns -1) % this.currentDraft.players.length];
     this.currentBoosterCards = this.currentDraft.boosters[parseInt(this.currentPlayer.currentPackId)].cards;
+    this.setBoosterToArray(this.currentBoosterCards);
+    console.log(this.currentBoosterCards);
+    console.log(this.currentPlayer);
   }
 
   nextGrab() {
-    console.log(this.currentDraft.turns, "inside next grab");
     this.currentDraft.turns++;
     this.initializeGrab();
     if(this.endOfTurnCheck()){
-      this.passPack();
-      this.beginUpdatingDraft();
+      this.passPack()
+      this.checkIfEmptyPack();
     }
-    console.log(this.currentPlayer.name, this.currentPlayer.currentPackId);
+    this.beginUpdatingDraft();
   }
 
   endOfTurnCheck() {
-    return (this.currentDraft.turns % this.currentDraft.players.length) === 0;
+    return ((this.currentDraft.turns - 1) % (this.currentDraft.players.length)) === 0;
   }
 
   passPack() {
@@ -92,26 +95,27 @@ export class DraftingComponent implements OnInit {
 
   displayCard(card) {
       this.selectedCard = card;
-      console.log(this.selectedCard);
   }
 
   processDetailSelection(decision){
     if(decision === "yes"){
-      console.log("before add to user");
-      this.beginAddCardToUser(this.selectedCard.$key);
-      console.log("post add card to user");
+      this.beginAddCardToUser(this.selectedCard.cardId);
       this.selectedCard = null;
-      console.log("post selectedCard to null");
       this.nextGrab();
     }
     else{
-      console.log("assign pack somehow fails");
       this.selectedCard = null;
     }
   }
 
   checkIfEmptyPack(){
+    if (this.currentBoosterCards.length === 0) {
+      this.assignPacksToPlayers();
+    }
+  }
 
+  setBoosterToArray(booster){
+    this.arrayedBoosterCards = Array.from(booster);
   }
 
   hideCard() {

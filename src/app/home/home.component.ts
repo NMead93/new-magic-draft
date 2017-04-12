@@ -44,7 +44,7 @@ export class HomeComponent {
             this.search = data;
             var freshPack: Booster = new Booster(this.search.cards)
             for (var i = 0; i < freshPack.cards.length; i++) {
-              freshPack.cards[i].$key = i.toString();
+              freshPack.cards[i].cardId = i.toString();
             }
             this.boosterList.push(freshPack);
           });
