@@ -67,7 +67,7 @@ export class HomeComponent {
 }, 5000);
 }
 
-  
+
 
 
   showme() {
