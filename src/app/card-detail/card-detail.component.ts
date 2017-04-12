@@ -23,7 +23,4 @@ export class CardDetailComponent implements OnInit {
     }
 
 
-    // if (text.contains('{G}') === true ) {
-    //     text.replace('{G}', '<i class="ms ms-g ms-cost"></i>' )
-    // }
 }

@@ -55,6 +55,7 @@ export class DraftingComponent implements OnInit {
   }
 
   nextGrab() {
+    console.log(this.currentDraft.turns, "inside next grab");
     this.currentDraft.turns++;
     this.initializeGrab();
     if(this.endOfTurnCheck()){
@@ -91,6 +92,31 @@ export class DraftingComponent implements OnInit {
 
   displayCard(card) {
       this.selectedCard = card;
+      console.log(this.selectedCard);
   }
+
+  processDetailSelection(decision){
+    if(decision === "yes"){
+      console.log("before add to user");
+      this.beginAddCardToUser(this.selectedCard.$key);
+      console.log("post add card to user");
+      this.selectedCard = null;
+      console.log("post selectedCard to null");
+      this.nextGrab();
+    }
+    else{
+      console.log("assign pack somehow fails");
+      this.selectedCard = null;
+    }
+  }
+
+  checkIfEmptyPack(){
+
+  }
+
+  hideCard() {
+      this.selectedCard = null;
+  }
+
 
 }

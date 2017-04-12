@@ -1,4 +1,4 @@
-<app-card-detail [cardToDisplay]="selectedCard" *ngIf="selectedCard" class="overlay"></app-card-detail>
+<app-card-detail [cardToDisplay]="selectedCard" (yesOrNo)="processDetailSelection($event)" *ngIf="selectedCard" class="overlay" (click)="hideCard()"></app-card-detail>
 <div class="background">
     <h1> BEGIN DRAFTING </h1>
 
@@ -16,6 +16,4 @@
 
     </div>
     <button (click)="nextGrab()">Next Grab</button>
-    <button (click)="beginAddCardToUser(1)">Test Add Card</button>
-
 </div>
