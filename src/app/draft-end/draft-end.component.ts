@@ -38,10 +38,8 @@ export class DraftEndComponent implements OnInit {
   }
 
   setArray(cards){
-    let output: any[] = [];
-    for(let i = 0; i < cards.length; i++) {
-      output.push(cards[i]);
-    }
+    var output = Array.from(cards);
+
     return output;
   }
 
