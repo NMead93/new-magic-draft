@@ -27,6 +27,10 @@ export class MagicService {
       this.drafts.push(newDraft).then(draft => { this.router.navigate(['draft', draft.key])});
   }
 
+  getAllDrafts() {
+    return this.angularFire.database.list('drafts');
+  }
+
   getBoosters(draftId: string) {
     return this.angularFire.database.list('drafts/' + draftId + '/boosters');
   }
