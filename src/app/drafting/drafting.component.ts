@@ -17,7 +17,7 @@ import { Location } from '@angular/common';
 })
 export class DraftingComponent implements OnInit {
 
-  constructor(private magicService: MagicService, private route: ActivatedRoute, private location: Location) {
+  constructor(private magicService: MagicService, private route: ActivatedRoute, private location: Location, private router: Router) {
   }
 
   draftId: string;
@@ -44,6 +44,7 @@ export class DraftingComponent implements OnInit {
       this.initializeGrab();
     })
   }
+
 
   beginUpdatingDraft() {
     this.magicService.updateDraft(this.currentDraft, this.draftId);
@@ -92,11 +93,17 @@ export class DraftingComponent implements OnInit {
   }
 
   //end turn and pack rotation methods ===================
+  checkEndOfDraft() {
+    return parseInt(this.currentDraft.players[0].currentPackId) >= this.currentDraft.players.length;
+  }
 
   assignPacksToPlayers() {
     this.currentDraft.rounds++;
     for (var i = 0; i < this.currentDraft.players.length; i++) {
       this.currentDraft.players[i].currentPackId = (i + (this.currentDraft.players.length * this.currentDraft.rounds)).toString();
+    }
+    if (this.checkEndOfDraft()) {
+      this.router.navigate(['draft/draft-end', this.draftId]);
     }
     this.beginUpdatingDraft();
   }
