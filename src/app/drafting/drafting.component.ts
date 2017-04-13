@@ -57,8 +57,6 @@ export class DraftingComponent implements OnInit {
     // this.currentBoosterCards = this.setBoosterToArray(this.currentDraft.boosters[parseInt(this.currentPlayer.currentPackId)].cards).filter(function(n){ return n != undefined });
     this.magicService.getCurrentBooster(this.draftId, this.currentPlayer.currentPackId).subscribe(data => {
       this.currentBoosterCards = data;
-      console.log(this.currentBoosterCards);
-      console.log(this.currentPlayer);
     })
   }
 
@@ -104,7 +102,8 @@ export class DraftingComponent implements OnInit {
 
   processDetailSelection(decision){
     if(decision === "yes"){
-      this.beginUpdatePlayerCardInfo();
+      this.beginUpdatePlayerCardType();
+      this.beginUpdatePlayerManaCurve();
       this.beginAddCardToUser(this.selectedCard.cardId);
       this.selectedCard = null;
 
@@ -132,7 +131,6 @@ export class DraftingComponent implements OnInit {
   resubscribeDraft() {
     this.magicService.getDraft(this.draftId).subscribe(data => {
       this.currentDraft = data;
-      console.log(this.currentDraft);
     });
   }
 
@@ -141,7 +139,7 @@ export class DraftingComponent implements OnInit {
       this.blurBg = false;
   }
 
-  beginUpdatePlayerCardInfo() {
+  beginUpdatePlayerCardType() {
     if (this.selectedCard.type.search('Creature') >= 0) {
       this.currentPlayer.playerInfo.cardType.creature++;
     } else if (this.selectedCard.type.search('Instant') >= 0) {
@@ -157,8 +155,68 @@ export class DraftingComponent implements OnInit {
     } else {
       this.currentPlayer.playerInfo.cardType.other++;
     }
-    console.log(this.currentPlayer.playerInfo.cardType);
     this.magicService.updatePlayerInfo(this.currentPlayer.playerInfo, this.draftId, this.currentPlayerId);
+  }
+
+  beginUpdatePlayerManaCurve() {
+    let manaCount: number = 0;
+    if (this.selectedCard.manaCost) {
+      if (this.selectedCard.manaCost.includes('1')) {
+        manaCount += 1;
+      }
+      if (this.selectedCard.manaCost.includes('2')) {
+        manaCount += 2;
+      }
+      if (this.selectedCard.manaCost.includes('3')) {
+        manaCount += 3;
+      }
+      if (this.selectedCard.manaCost.includes('4')) {
+        manaCount += 4;
+      }
+      if (this.selectedCard.manaCost.includes('5')) {
+        manaCount += 5;
+      }
+      if (this.selectedCard.manaCost.includes('6')) {
+        manaCount += 6;
+      }
+      if (this.selectedCard.manaCost.includes('7')) {
+        manaCount += 7;
+      }
+      if (this.selectedCard.manaCost.includes('8')) {
+        manaCount += 8;
+      }
+      if (this.selectedCard.manaCost.includes('9')) {
+        manaCount += 9;
+      }
+      if (this.selectedCard.manaCost.includes('10')) {
+        manaCount += 10;
+      }
+      if (this.selectedCard.manaCost.includes('11')) {
+        manaCount += 11;
+      }
+      if (this.selectedCard.manaCost.includes('12')) {
+        manaCount += 12;
+      }
+      for (var i = 0; i < this.selectedCard.manaCost.length; i++) {
+        if (this.selectedCard.manaCost.charAt(i) === 'W' || this.selectedCard.manaCost.charAt(i) === 'U' || this.selectedCard.manaCost.charAt(i) === 'B' || this.selectedCard.manaCost.charAt(i) === 'R' || this.selectedCard.manaCost.charAt(i) === 'G') {
+          manaCount++;
+        }
+      }
+      if (manaCount === 1) {
+        this.currentPlayer.playerInfo.manaCurve.one++;
+      } else if (manaCount === 2) {
+        this.currentPlayer.playerInfo.manaCurve.two++;
+      } else if (manaCount === 3) {
+        this.currentPlayer.playerInfo.manaCurve.three++;
+      } else if (manaCount === 4) {
+        this.currentPlayer.playerInfo.manaCurve.four++;
+      } else if (manaCount === 5) {
+        this.currentPlayer.playerInfo.manaCurve.five++;
+      } else {
+        this.currentPlayer.playerInfo.manaCurve.sixAndUp++;
+      }
+      this.magicService.updatePlayerInfo(this.currentPlayer.playerInfo, this.draftId, this.currentPlayerId);
+    }
   }
 
 
