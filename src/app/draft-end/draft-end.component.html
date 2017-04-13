@@ -1,4 +1,13 @@
-<div *ngFor="let player of players | async">
-  <h1>{{player.name}}</h1>
-  <img src="{{url}}" *ngFor="let url of setArray(player.cards)">
+<div [ngClass]="{'background':true, 'blurred': blurBg}"
+class="background">
+
+  <div class="master">
+    <div *ngFor="let player of players | async" class="card-container">
+      <h1 class="player-name">{{player.name}}</h1>
+      <img src="{{url}}" *ngFor="let url of setArray(player.cards)">
+
+    </div>
+  </div>
+
+
 </div>
