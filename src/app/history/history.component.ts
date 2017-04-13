@@ -20,7 +20,7 @@ export class HistoryComponent implements OnInit {
 
   goToDraft(key){
     console.log(key);
-    this.router.navigate(['draft/', key])
+    this.router.navigate(['draft/draft-end', key])
   }
 
   getPlayers(key){

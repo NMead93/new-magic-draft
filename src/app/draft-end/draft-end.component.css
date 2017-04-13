@@ -12,11 +12,16 @@
   width: 30%;
   overflow-y: scroll;
   overflow-x: hidden;
+  text-align: center;
+}
+img {
+    margin: 4px;
 }
 
-.player-name {
+.player-name, hr {
   color: white;
-  text-align: center;
+  text-shadow: 0px 2px 5px black;
+  /*text-align: center;*/
 }
 
 ::-webkit-scrollbar{display: none}
@@ -34,6 +39,27 @@
     padding-left: 2%;
 
 }
+
+#twitter {
+    height: 3em;
+    padding: 1em;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(1, 159, 233);
+}
+#twitter:hover  {
+    background-color: white;
+}
+
+a {
+    color: white;
+
+}
+a:hover {
+    color: rgb(1, 159, 233);
+
+}
+button
 
 
 .style-11::-webkit-scrollbar-track
