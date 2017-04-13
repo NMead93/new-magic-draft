@@ -1,0 +1,5 @@
+<div *ngFor="let player of playerArray">
+  <div *ngFor="let card of setArray(player.cards)">
+    <img src="{{card?.imageUrl}}"/>
+  </div>
+</div>

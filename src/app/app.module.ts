@@ -15,6 +15,7 @@ import { HistoryComponent } from './history/history.component';
 import { CardDetailComponent } from './card-detail/card-detail.component';
 import { PlayerInfoComponent } from "./player-info/player-info.component";
 import { ToArrayPipe } from './to-array.pipe';
+import { DraftEndComponent } from './draft-end/draft-end.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -33,7 +34,8 @@ export const firebaseConfig = {
     HistoryComponent,
     CardDetailComponent,
     PlayerInfoComponent,
-    ToArrayPipe
+    ToArrayPipe,
+    DraftEndComponent
   ],
   imports: [
     BrowserModule,
