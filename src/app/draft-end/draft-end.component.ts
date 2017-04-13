@@ -14,8 +14,7 @@ export class DraftEndComponent implements OnInit {
 
   //global variables
   currentDraftId: string;
-  currentDraft;
-  playerArray = [];
+  players;
 
   //global variables
 
@@ -23,23 +22,17 @@ export class DraftEndComponent implements OnInit {
     this.route.params.forEach(urlParameters => {
       this.currentDraftId = urlParameters['id'];
     });
-    this.magicService.getDraft(this.currentDraftId).subscribe(data => {
-      this.currentDraft = data;
-      console.log(this.currentDraft);
-      this.setArrayOfPlayers(this.currentDraft);
-    });
+    this.magicService.getPlayers(this.currentDraftId).subscribe(data => {
+      this.players = data;
+      console.log(this.players);
+    })
   }
 
-  setArrayOfPlayers(draft) {
-    for(let i = 0; i < draft.players.length; i++){
-      this.playerArray.push(draft.players[i]);
-    }
-    console.log(this.playerArray);
-  }
 
   setArray(cards){
+    console.log(cards)
     var output = Array.from(cards);
-
+    console.log(output);
     return output;
   }
 
