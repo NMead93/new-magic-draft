@@ -31,7 +31,13 @@ export class DraftingComponent implements OnInit {
 
   showInfo() {
       this.infoShowing = true;
-      console.log(this.currentDraft)
+      this.blurBg = true;
+      console.log(this.currentPlayer)
+  }
+  hideInfo() {
+      this.infoShowing = false;
+      this.blurBg = false;
+      console.log(this.currentPlayer)
   }
 
 
@@ -150,6 +156,7 @@ export class DraftingComponent implements OnInit {
       this.selectedCard = null;
       this.blurBg = false;
   }
+
 
   beginUpdatePlayerCardType() {
     if (this.selectedCard.type.search('Creature') >= 0) {
