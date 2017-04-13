@@ -8,13 +8,13 @@ nav a:hover{
 }
 
 nav {
-    position: absolute;
+    position: fixed;
     width: 99.5vw;
     z-index: 999;
     top: 0;
 }
 footer {
-    position: absolute;
+    position: fixed;
     width: 100vw;
     z-index: 999;
 }

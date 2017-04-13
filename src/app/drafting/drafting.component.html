@@ -1,10 +1,12 @@
 <app-card-detail [cardToDisplay]="selectedCard" (yesOrNo)="processDetailSelection($event)" *ngIf="selectedCard" class="overlay" (click)="hideCard()"></app-card-detail>
+<app-player-info [childCurrentPlayer]="currentPlayer" *ngIf="infoShowing"></app-player-info>
 <div [ngClass]="{'background':true, 'blurred': blurBg}"
 class="background">
-    <h1> BEGIN DRAFTING </h1>
 
-    <!-- <p>{{currentPlayer?.name}}</p>
-    <app-player-info [childCurrentPlayer]="currentPlayer"></app-player-info> -->
+    <div class="name" (click)="showInfo()">
+        {{currentPlayer?.name}}
+
+    </div>
     <div class="">
 
         <div class="" id="card-container">
@@ -16,5 +18,5 @@ class="background">
         </div>
 
     </div>
-    <button (click)="nextGrab()">Next Grab</button>
+
 </div>

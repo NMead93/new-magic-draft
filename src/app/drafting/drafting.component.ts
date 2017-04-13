@@ -27,6 +27,12 @@ export class DraftingComponent implements OnInit {
   currentBoosterCards;
   selectedCard;
   blurBg: boolean = false;
+  infoShowing: boolean = false;
+
+  showInfo() {
+      this.infoShowing = true;
+      console.log(this.currentDraft)
+  }
 
 
   ngOnInit() {
@@ -106,7 +112,6 @@ export class DraftingComponent implements OnInit {
       this.beginUpdatePlayerManaCurve();
       this.beginAddCardToUser(this.selectedCard.cardId);
       this.selectedCard = null;
-
       this.blurBg = false;
       this.nextGrab();
     }
