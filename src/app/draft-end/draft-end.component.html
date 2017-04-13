@@ -1,6 +1,4 @@
-<div *ngFor="let player of players">
-  <h1> {{player.cards[0].imageUrl}} </h1>
-  <!-- <div *ngFor="let card of player.cards">
-    <img src="{{card?.imageUrl}}"/>
-  </div> -->
+<div *ngFor="let player of players | async">
+  <h1>{{player.name}}</h1>
+  <img src="{{url}}" *ngFor="let url of setArray(player.cards)">
 </div>

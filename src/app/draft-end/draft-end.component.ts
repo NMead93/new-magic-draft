@@ -22,17 +22,16 @@ export class DraftEndComponent implements OnInit {
     this.route.params.forEach(urlParameters => {
       this.currentDraftId = urlParameters['id'];
     });
-    this.magicService.getPlayers(this.currentDraftId).subscribe(data => {
-      this.players = data;
-      console.log(this.players);
-    })
+    this.players = this.magicService.getPlayers(this.currentDraftId);
   }
 
 
   setArray(cards){
-    console.log(cards)
-    var output = Array.from(cards);
-    console.log(output);
+    var output = []
+    for(var property in cards){
+      console.log(cards[property].imageUrl)
+      output.push(cards[property].imageUrl);
+    }
     return output;
   }
 
