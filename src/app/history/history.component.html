@@ -1,9 +1,15 @@
-<ul>
-  <li (click)="goToDraft(draft.$key)">{{draft?.$key}}</li>
-</ul>
+<div class="spacer">
 
-<div class="" *ngFor="let draft of allDrafts | async">
+</div>
+
+<div class="master">
+
+
+<div (click)="goToDraft(draft.$key)" class="draft-panel" *ngFor="let draft of allDrafts | async">
+    <p>{{draft.$key}}</p>
     <ul>
-        <li *ngFor="let player of draft.$key.players"></li>
+        <li *ngFor="let player of draft.players">{{player.name}}</li>
     </ul>
+</div>
+
 </div>

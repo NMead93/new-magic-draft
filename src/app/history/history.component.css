@@ -1,0 +1,29 @@
+.master {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 3em;
+    padding: 10%;
+    width: 100vw;
+    height: 50vh;
+}
+
+.spacer {
+    height: 200px;
+}
+
+
+.draft-panel {
+    border: solid black 1px;
+    padding: 1em;
+    width: 250px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+    margin: 5px;
+}
+
+.draft-panel:hover {
+    box-shadow: 0px 0px 10px darkgray;
+    background-color: lightgray;
+}

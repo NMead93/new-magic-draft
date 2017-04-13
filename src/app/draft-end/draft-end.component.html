@@ -1,17 +1,17 @@
-<div [ngClass]="{'background':true, 'blurred': blurBg}"
-class="background">
+<div class="background">
 
-  <div>
-    <button class="btn-default"><a href="https://twitter.com/intent/tweet?text=" target="_blank">Tweet this!</a></button>
-  </div>
 
   <div class="master">
     <div *ngFor="let player of players | async" class="card-container">
       <h1 class="player-name">{{player.name}}</h1>
+      <hr>
       <img src="{{url}}" *ngFor="let url of setArray(player.cards)">
 
     </div>
   </div>
 
+  <div class="button-holder">
+      <button id="twitter"class="btn-default"><a href="https://twitter.com/intent/tweet?text=" target="_blank">Tweet this!</a></button>
+  </div>
 
 </div>
