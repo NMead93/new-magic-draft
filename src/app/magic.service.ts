@@ -67,13 +67,12 @@ export class MagicService {
       return this.angularFire.database.object('drafts/' + draftId + '/players/' + playerId + '/playerInfo');
   }
 
-  updatePlayerInfo(newCardInfo, draftId: string, playerId: string) {
+  updatePlayerInfo(newPlayerInfo, draftId: string, playerId: string) {
       var playerInfo = this.getPlayerInfo(draftId, playerId);
-      playerInfo.update({})
+      playerInfo.update({
+        cardType: newPlayerInfo.cardType,
+        manaCurve: newPlayerInfo.manaCurve
+      });
   }
-
-  // assignPacksToPlayers(){
-  //   (i=0; i<)
-  // }
 
 }

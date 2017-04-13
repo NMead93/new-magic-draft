@@ -22,6 +22,7 @@ export class DraftingComponent implements OnInit {
 
   draftId: string;
   currentPlayer;
+  currentPlayerId;
   currentDraft;
   currentBoosterCards;
   selectedCard;
@@ -44,15 +45,15 @@ export class DraftingComponent implements OnInit {
   }
 
   beginAddCardToUser(cardId: string) {
-    var playerId = ((this.currentDraft.turns - 1) % this.currentDraft.players.length).toString();
     this.magicService.getCard(this.currentPlayer.currentPackId, cardId, this.draftId).subscribe(data => {
-      this.magicService.addCardToUser(data, playerId, cardId, this.currentPlayer.currentPackId, this.draftId);
+      this.magicService.addCardToUser(data, this.currentPlayerId, cardId, this.currentPlayer.currentPackId, this.draftId);
     })
   }
 
   // turn and pack rotation methods ===================
   initializeGrab(){
     this.currentPlayer = this.currentDraft.players[(this.currentDraft.turns -1) % this.currentDraft.players.length];
+    this.currentPlayerId = ((this.currentDraft.turns - 1) % this.currentDraft.players.length).toString();
     // this.currentBoosterCards = this.setBoosterToArray(this.currentDraft.boosters[parseInt(this.currentPlayer.currentPackId)].cards).filter(function(n){ return n != undefined });
     this.magicService.getCurrentBooster(this.draftId, this.currentPlayer.currentPackId).subscribe(data => {
       this.currentBoosterCards = data;
@@ -103,6 +104,7 @@ export class DraftingComponent implements OnInit {
 
   processDetailSelection(decision){
     if(decision === "yes"){
+      this.beginUpdatePlayerCardInfo();
       this.beginAddCardToUser(this.selectedCard.cardId);
       this.selectedCard = null;
 
@@ -140,6 +142,23 @@ export class DraftingComponent implements OnInit {
   }
 
   beginUpdatePlayerCardInfo() {
+    if (this.selectedCard.type.search('Creature') >= 0) {
+      this.currentPlayer.playerInfo.cardType.creature++;
+    } else if (this.selectedCard.type.search('Instant') >= 0) {
+      this.currentPlayer.playerInfo.cardType.instant++;
+    } else if (this.selectedCard.type.search('Planeswalker') >= 0) {
+      this.currentPlayer.playerInfo.cardType.planeswalker++;
+    } else if (this.selectedCard.type.search('Artifact') >= 0) {
+      this.currentPlayer.playerInfo.cardType.artifact++;
+    } else if (this.selectedCard.type.search('Enchantment') >= 0) {
+      this.currentPlayer.playerInfo.cardType.enchantment++;
+    } else if (this.selectedCard.type.search('Sorcery') >= 0) {
+      this.currentPlayer.playerInfo.cardType.sorcery++;
+    } else {
+      this.currentPlayer.playerInfo.cardType.other++;
+    }
+    console.log(this.currentPlayer.playerInfo.cardType);
+    this.magicService.updatePlayerInfo(this.currentPlayer.playerInfo, this.draftId, this.currentPlayerId);
   }
 
 
