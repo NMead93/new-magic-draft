@@ -1,3 +1,3 @@
-<p>
-  history works!
-</p>
+<ul>
+  <li (click)="goToDraft(draft.$key)" *ngFor="let draft of allDrafts | async">{{draft?.$key}}</li>
+</ul>
