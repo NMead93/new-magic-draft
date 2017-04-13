@@ -29,7 +29,7 @@ const appRoutes: Routes = [
       component: HistoryComponent
     },
     {
-      path: 'draft/:id/draft-end',
+      path: 'draft/draft-end/:id',
       component: DraftEndComponent
     }
 
