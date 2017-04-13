@@ -1,0 +1,14 @@
+
+#player-info {
+    text-align: center;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(2);
+    position: absolute;
+    margin-top: 40%;
+    margin-left: 50%;
+    background-color: red;
+
+}

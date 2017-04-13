@@ -27,6 +27,12 @@ export class DraftingComponent implements OnInit {
   currentBoosterCards;
   selectedCard;
   blurBg: boolean = false;
+  infoShowing: boolean = false;
+
+  showInfo() {
+      this.infoShowing = true;
+      console.log(this.currentDraft)
+  }
 
 
   ngOnInit() {

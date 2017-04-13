@@ -13,6 +13,7 @@ import { DraftingComponent } from './drafting/drafting.component';
 import { AboutComponent } from './about/about.component';
 import { HistoryComponent } from './history/history.component';
 import { CardDetailComponent } from './card-detail/card-detail.component';
+import { PlayerInfoComponent } from "./player-info/player-info.component";
 import { ToArrayPipe } from './to-array.pipe';
 
 export const firebaseConfig = {
@@ -31,6 +32,7 @@ export const firebaseConfig = {
     AboutComponent,
     HistoryComponent,
     CardDetailComponent,
+    PlayerInfoComponent,
     ToArrayPipe
   ],
   imports: [
