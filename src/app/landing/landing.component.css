@@ -20,13 +20,14 @@
 .landing-image {
     background-image: radial-gradient(ellipse, rgba(75, 75, 75, 0.5), rgba(0, 0, 0, 0.9)), url('../../assets/landing-bg.jpg');
     font-family: 'magic';
-    height: 95.3vh;
+    height: 98.5vh;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    overflow: hidden;
 }
 .image-blurred {
     background-image: radial-gradient(ellipse, rgba(75, 75, 75, 0.5), rgba(0, 0, 0, 0.9)), url('../../assets/landing-bg.jpg');

@@ -3,6 +3,9 @@
     <h2 id="overlay-title">Who will be drafting?</h2>
 
     <div id="input-panel" class="row">
+        <div id="symbol">
+
+        </div>
         <div class="" id="name-list">
             <p *ngFor="let name of playerNameList">{{name}}</p>
         </div>
@@ -12,7 +15,7 @@
             <button class="btn btn-sm" type="button" id="add-player-button" (click)="addPlayer(playerName.value)">Add Player</button>
         </div>
         <div>
-            <select #setOption>
+            <select id="select-set"#setOption>
                 <option value="KLD">Kaladesh</option>
                 <option value="EMN">Eldritch Moon</option>
                 <option value="SOI">Shadows Over Innistrad</option>
@@ -24,10 +27,11 @@
                 <option value="JOU">Journey into Nyx</option>
                 <option value="BNG">Born of the Gods</option>
             </select>
+            <br>
+            <button class="btn" id="start-draft-button" (click)="getBoosters(setOption.value)">Start Draft!</button>
         </div>
     </div>
     <div class="button holder">
-        <button class="btn" id="start-draft-button" (click)="getBoosters(setOption.value)">Start Draft!</button>
 
     </div>
 </div>

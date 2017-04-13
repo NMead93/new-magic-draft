@@ -105,20 +105,12 @@ export class DraftingComponent implements OnInit {
     if(decision === "yes"){
       this.beginAddCardToUser(this.selectedCard.cardId);
       this.selectedCard = null;
-<<<<<<< HEAD
-      this.blurBg = false;
-=======
       this.blurBg = null;
->>>>>>> a9224626fe98e1a3736af3b750ef0a513d1980ea
       this.nextGrab();
     }
     else{
       this.selectedCard = null;
-<<<<<<< HEAD
-      this.blurBg = false;
-=======
       this.blurBg = null;
->>>>>>> a9224626fe98e1a3736af3b750ef0a513d1980ea
     }
   }
 

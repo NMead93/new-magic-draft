@@ -1,20 +1,29 @@
-
+@font-face {
+    font-family: 'magic';
+    src: url('../../assets/magic.ttf');
+}
 
 #overlay-title{
-    font-family: sans-serif;
+    font-family: 'magic';
+    width: 100%;
+    height: 40%
+
 }
 
 #input-panel {
+    width: 100%;
 
 }
 
-#input-container {
+#name-list{
+    color: white;
+}
 
+#input-container {
     text-align: center;
     z-index: 9;
-    background-image: radial-gradient(ellipse, rgba(0, 0, 0, 0.4), black);
-    border: solid .25em black;
-    width: 20%;
+    background-image: url(../../assets/planesymbol.png);
+    width: 40%;
     height: 60%;
     display: flex;
     align-items: center;
@@ -26,16 +35,23 @@
     padding-bottom: 1em;
     box-shadow: .00em .2em .3em .2em rgba(0, 0, 0, 0.5);
     color: black;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-filter: drop-shadow(0px 2em  1em rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0px 2em 1em rgba(0, 0, 0, 0.5));
 
 }
 
 
 #name-input {
+
     text-align: center;
     border: none;
     background-color: rgb(190, 185, 178);
     color: black;
     border-radius: .1em;
+    width: 50%;
 
 }
 
