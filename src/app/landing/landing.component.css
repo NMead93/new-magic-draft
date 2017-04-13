@@ -79,30 +79,35 @@ h1 {
 
 #g{
 
-    animation: saturation 1s ease-in-out .75s alternate 1;
+    animation: saturation 1s ease .75s alternate 1;
 }
 #c{
 
-    animation: saturation 1s ease-in-out .5s alternate 1;
+    animation: saturation 1s ease .5s alternate 1;
 }
 #r{
 
-    animation: saturation 1s ease-in-out .25s alternate 1;
+    animation: saturation 1s ease .25s alternate 1;
 }
 #s{
     background-color: lightblue;
-    animation: saturation 1s ease-in-out alternate 1;
+    animation: saturation 1s ease alternate 1;
 }
 #w{
 
-    animation: saturation 1s ease-in-out .25s alternate 1;
+    animation: saturation 1s ease .25s alternate 1;
 }
 #b{
-    animation: saturation 1s ease-in-out .5s alternate 1;
+    animation: saturation 1s ease .5s alternate 1;
 }
 #u{
 
-    animation: saturation 1s ease-in-out .75s alternate 1;
+    animation: saturation 1s ease .75s alternate 1;
+}
+
+i {
+    margin-left: .5%;
+    margin-right: .5%;
 }
 
 @keyframes saturation {

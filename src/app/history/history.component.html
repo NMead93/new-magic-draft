@@ -1,3 +1,9 @@
 <ul>
-  <li (click)="goToDraft(draft.$key)" *ngFor="let draft of allDrafts | async">{{draft?.$key}}</li>
+  <li (click)="goToDraft(draft.$key)">{{draft?.$key}}</li>
 </ul>
+
+<div class="" *ngFor="let draft of allDrafts | async">
+    <ul>
+        <li *ngFor="let player of draft.$key.players"></li>
+    </ul>
+</div>
