@@ -10,15 +10,14 @@
             <p *ngFor="let name of playerNameList">{{name}}</p>
         </div>
         <div class="" id="new-player">
-            <input id="name-input" #playerName placeholder="Riftwalker's Name"  autofocus="true">
+            <input id="name-input" #playerName placeholder="Planeswalker's Name"  autofocus="true">
             <br>
             <button class="btn btn-sm" type="button" id="add-player-button" (click)="addPlayer(playerName.value)">Add Player</button>
-        </div>
         <div>
-            <select id="select-set"#setOption>
+            <select class="dropdown" id="select-set"#setOption>
                 <option value="KLD">Kaladesh</option>
                 <option value="EMN">Eldritch Moon</option>
-                <option value="SOI">Shadows Over Innistrad</option>
+                <option value="SOI" selected>Shadows Over Innistrad</option>
                 <option value="OGW">Oath of the Gatewatch</option>
                 <option value="BFZ">Battle for Zendikar</option>
                 <option value="DTK">Dragons of Tarkir</option>
@@ -28,8 +27,10 @@
                 <option value="BNG">Born of the Gods</option>
             </select>
             <br>
-            <button class="btn" id="start-draft-button" (click)="getBoosters(setOption.value)">Start Draft!</button>
+
+            <button class="btn btn-sm" id="start-draft-button" (click)="getBoosters(setOption.value)">Start Draft!</button>
         </div>
+    </div>
     </div>
     <div class="button holder">
 

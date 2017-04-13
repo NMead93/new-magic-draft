@@ -33,27 +33,27 @@
     padding-left: 1em;
     padding-right: 1em;
     padding-bottom: 1em;
-    box-shadow: .00em .2em .3em .2em rgba(0, 0, 0, 0.5);
     color: black;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    -webkit-filter: drop-shadow(0px 2em  1em rgba(0, 0, 0, 0.5));
-    filter: drop-shadow(0px 2em 1em rgba(0, 0, 0, 0.5));
+    animation: glowshadow 4s ease-in-out alternate infinite;
+}
 
+@keyframes glowshadow {
+    0% { filter:  drop-shadow(0px -.25em .5em darkgray); }
+    100% { filter:  drop-shadow(0px -2em 1em white); }
 }
 
 
-#name-input {
-
-    text-align: center;
+#input-container #input-panel {
+    box-shadow: none;
     border: none;
-    background-color: rgb(190, 185, 178);
     color: black;
     border-radius: .1em;
     width: 50%;
-
 }
+
 
 #overlay-title {
     font-size: 3em;
@@ -68,6 +68,7 @@
 #start-draft-button {
     /*margin-top: 1em;*/
     color: black;
+    margin: 1em;
 }
 
 #loading {
