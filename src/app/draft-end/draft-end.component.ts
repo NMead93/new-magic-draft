@@ -15,6 +15,7 @@ export class DraftEndComponent implements OnInit {
   //global variables
   currentDraftId: string;
   players;
+  currentDraft = this.magicService.getDraft(this.currentDraftId);
 
   //global variables
 

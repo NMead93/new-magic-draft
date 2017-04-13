@@ -1,6 +1,10 @@
 <div [ngClass]="{'background':true, 'blurred': blurBg}"
 class="background">
 
+  <div>
+    <button class="btn-default"><a href="https://twitter.com/intent/tweet?text=">Tweet this!</a></button>
+  </div>
+
   <div class="master">
     <div *ngFor="let player of players | async" class="card-container">
       <h1 class="player-name">{{player.name}}</h1>

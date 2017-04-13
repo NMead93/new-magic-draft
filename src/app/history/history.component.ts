@@ -23,6 +23,10 @@ export class HistoryComponent implements OnInit {
     this.router.navigate(['draft/', key])
   }
 
+  getPlayers(key){
+    this.magicService.getPlayers(key)
+  }
+
   // setArray(drafts){
   //   var output = []
   //   for(var property in drafts){
