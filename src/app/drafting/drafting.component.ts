@@ -100,7 +100,7 @@ export class DraftingComponent implements OnInit {
 
   //end turn and pack rotation methods ===================
   checkEndOfDraft() {
-    return parseInt(this.currentDraft.players[0].currentPackId) >= this.currentDraft.players.length;
+    return this.currentDraft.turns >= (this.currentDraft.players.length * 45);
   }
 
   assignPacksToPlayers() {
