@@ -76,6 +76,7 @@ export class DraftingComponent implements OnInit {
   nextGrab() {
     this.currentDraft.turns++;
     this.initializeGrab();
+    console.log(this.endOfTurnCheck());
     if(this.endOfTurnCheck()){
       this.passPack()
       this.checkIfEmptyPack();
@@ -88,6 +89,7 @@ export class DraftingComponent implements OnInit {
   }
 
   passPack() {
+    console.log("in pass Pack");
     var packIdArr: string[] = [];
     for (var i = 0; i < this.currentDraft.players.length; i++) {
       packIdArr.push(this.currentDraft.players[i].currentPackId);
@@ -100,7 +102,7 @@ export class DraftingComponent implements OnInit {
 
   //end turn and pack rotation methods ===================
   checkEndOfDraft() {
-    return this.currentDraft.turns >= (this.currentDraft.players.length * 45);
+    return parseInt(this.currentDraft.players[0].currentPackId) >= (this.currentDraft.players.length * 3);
   }
 
   assignPacksToPlayers() {
@@ -108,6 +110,7 @@ export class DraftingComponent implements OnInit {
     for (var i = 0; i < this.currentDraft.players.length; i++) {
       this.currentDraft.players[i].currentPackId = (i + (this.currentDraft.players.length * this.currentDraft.rounds)).toString();
     }
+    console.log("in assignPack")
     if (this.checkEndOfDraft()) {
       this.router.navigate(['draft/draft-end', this.draftId]);
     }
@@ -136,6 +139,7 @@ export class DraftingComponent implements OnInit {
 
   checkIfEmptyPack(){
     if (this.currentBoosterCards.length === 0) {
+      console.log("empty booster");
       this.assignPacksToPlayers();
       this.initializeGrab();
       // this.nextGrab();

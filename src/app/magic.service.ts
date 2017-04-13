@@ -62,12 +62,20 @@ export class MagicService {
 
   updateDraft(draftToUpdate, id) {
     var draft = this.getDraft(id);
-    draft.update({
-      boosters: draftToUpdate.boosters,
-      players: draftToUpdate.players,
-      turns: draftToUpdate.turns,
-      rounds: draftToUpdate.rounds
-    });
+    if (draftToUpdate.boosters) {
+      draft.update({
+        boosters: draftToUpdate.boosters,
+        players: draftToUpdate.players,
+        turns: draftToUpdate.turns,
+        rounds: draftToUpdate.rounds
+      });
+    } else {
+      draft.update({
+        players: draftToUpdate.players,
+        turns: draftToUpdate.turns,
+        rounds: draftToUpdate.rounds
+      });
+    }
   }
 
   //Functions for dealing with player info==================
