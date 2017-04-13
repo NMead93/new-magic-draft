@@ -9,7 +9,6 @@
     overflow-x: hidden;
     width: 90vw;
     padding: 2.5%;
-    outline: solid yellow 1px;
 }
 ::-webkit-scrollbar {
     width: 0px;

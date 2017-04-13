@@ -1,6 +1,69 @@
 <div id="player-info">
-    <p>
-        {{childCurrentPlayer?.name}}
-    </p>
+    <div id="name">
+
+        <h1>
+            {{childCurrentPlayer?.name}}
+        </h1>
+    </div>
+
+    <div id="flex-row">
+        <div id="type-column" class="flex-column">
+            <h5>Type count</h5>
+
+            <div id="artifact">
+                <i class="icon ms ms-artifact ms-cost ms-shadow"></i><span class="value">{{childCurrentPlayer?.playerInfo.cardType.artifact}}</span>
+            </div>
+            <div id="creature">
+                <i class="icon ms ms-creature ms-cost ms-shadow"></i><span class="value">{{childCurrentPlayer?.playerInfo.cardType.creature}}</span>
+
+            </div>
+            <div id="enchantment">
+                <i class="icon ms ms-enchantment ms-cost ms-shadow"></i><span class="value">{{childCurrentPlayer?.playerInfo.cardType.enchantment}}</span>
+
+            </div>
+            <div id="instant">
+                <i class="icon ms ms-instant ms-cost ms-shadow"></i><span class="value">{{childCurrentPlayer?.playerInfo.cardType.instant}}</span>
+
+            </div>
+            <div id="planeswalker">
+                <i class="icon ms ms-planeswalker ms-cost ms-shadow"></i><span class="value">{{childCurrentPlayer?.playerInfo.cardType.planeswalker}}</span>
+
+            </div>
+            <div id="sorcery">
+                <i class="icon ms ms-sorcery ms-cost ms-shadow"></i><span class="value">{{childCurrentPlayer?.playerInfo.cardType.sorcery}}</span>
+
+            </div>
+            <div id="other">
+                ? {{childCurrentPlayer?.playerInfo.cardType.other}}
+            </div>
+        </div>
+        <div id="mana-column" class="flex-column">
+            <h5>CMC count</h5>
+            <div id="one" class="number-holder"><i class="icon ms ms-1 ms-cost ms-shadow"></i>
+
+                <span class="value">{{childCurrentPlayer?.playerInfo.manaCurve.one}}</span>
+            </div>
+            <div id="two" class="number-holder"><i class="icon ms ms-2 ms-cost ms-shadow"></i>
+
+                <span class="value">{{childCurrentPlayer?.playerInfo.manaCurve.two}}</span>
+            </div>
+            <div id="three" class="number-holder"><i class="icon ms ms-3 ms-cost ms-shadow"></i>
+
+                <span class="value">{{childCurrentPlayer?.playerInfo.manaCurve.three}}</span>
+            </div>
+            <div id="four" class="number-holder"><i class="icon ms ms-4 ms-cost ms-shadow"></i>
+
+                <span class="value">{{childCurrentPlayer?.playerInfo.manaCurve.four}}</span>
+            </div>
+            <div id="five" class="number-holder"><i class="icon ms ms-5 ms-cost ms-shadow"></i>
+
+                <span class="value">{{childCurrentPlayer?.playerInfo.manaCurve.five}}</span>
+            </div>
+            <div id="six-plus" class="number-holder"><i class="icon ms ms-6 ms-cost ms-shadow"></i>+
+
+                <span class="value">{{childCurrentPlayer?.playerInfo.manaCurve.sixAndUp}}</span>
+            </div>
+        </div>
+    </div>
 
 </div>

@@ -2,13 +2,57 @@
 #player-info {
     text-align: center;
     z-index: 9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transform: scale(2);
     position: absolute;
-    margin-top: 40%;
-    margin-left: 50%;
-    background-color: red;
+    padding: 1em;
+    border-radius: 1em;
+    border: 5px solid black;
+    background-image: radial-gradient(ellipse, rgba(255, 255, 255, 0.1), rgba(10, 10, 10, 0.9));
 
+}
+
+
+#name {
+    text-align: center;
+    color: lightgray;
+    text-shadow: 0px 2px 3px black;
+}
+
+
+#flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 2em;
+    border: 1px solid black;
+    padding: 1em;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 1em;
+
+}
+
+.flex-column div {
+    color: lightgray;
+}
+
+#artifact:hover {
+    content: "Artifact";
+}
+
+span {
+color: lightgray;
+margin-left: 1em;
+}
+
+h5 {
+    color: lightgray;
+    text-shadow: 0px 1px 2px black;
 }
