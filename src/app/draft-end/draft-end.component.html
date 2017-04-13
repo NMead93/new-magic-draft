@@ -1,5 +1,5 @@
-<div *ngFor={{let player of currentDraft.players}}>
-  <div *ngFor={{let card of player.cards}}>
-    <img {{card?.imageUrl}}>
+<div *ngFor="let player of playerArray">
+  <div *ngFor="let card of setArray(player.cards)">
+    <img src="{{card?.imageUrl}}"/>
   </div>
 </div>
