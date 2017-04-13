@@ -5,6 +5,7 @@ import { LandingComponent } from "./landing/landing.component";
 import { DraftingComponent } from "./drafting/drafting.component";
 import { AboutComponent } from "./about/about.component";
 import { HistoryComponent } from "./history/history.component";
+import { DraftEndComponent } from './draft-end/draft-end.component';
 
 const appRoutes: Routes = [
     {
@@ -26,6 +27,10 @@ const appRoutes: Routes = [
     {
       path: 'history',
       component: HistoryComponent
+    },
+    {
+      path: 'draft/:id/draft-end',
+      component: DraftEndComponent
     }
 
 
