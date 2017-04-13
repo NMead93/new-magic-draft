@@ -1,5 +1,5 @@
 <app-card-detail [cardToDisplay]="selectedCard" (yesOrNo)="processDetailSelection($event)" *ngIf="selectedCard" class="overlay" (click)="hideCard()"></app-card-detail>
-<app-player-info [childCurrentPlayer]="currentPlayer" *ngIf="infoShowing"></app-player-info>
+<app-player-info [childCurrentPlayer]="currentPlayer" *ngIf="infoShowing" class="overlay" (click)="hideInfo()" ></app-player-info>
 <div [ngClass]="{'background':true, 'blurred': blurBg}"
 class="background">
 

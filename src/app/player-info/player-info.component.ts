@@ -8,10 +8,16 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PlayerInfoComponent implements OnInit {
 
     @Input() childCurrentPlayer;
+    cardArray: string[] = [];
 
-  constructor() { }
+  constructor() {
+   }
+   getCardImages() {
+   }
+
+
 
   ngOnInit() {
-  }
-
+      this.getCardImages();
+}
 }
